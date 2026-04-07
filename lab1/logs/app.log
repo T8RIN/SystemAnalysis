@@ -1,0 +1,1455 @@
+2026-04-08 00:51:57,242 | INFO | Starting Wolfram Alpha lab runner
+2026-04-08 00:51:57,242 | INFO | Executing query 1/15: integrate x^2 sin^3 x dx
+2026-04-08 00:51:57,242 | INFO | Requesting API for query: integrate x^2 sin^3 x dx
+2026-04-08 00:51:57,247 | ERROR | Failed to process query 'integrate x^2 sin^3 x dx'
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connection.py", line 204, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/socket.py", line 962, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 8] nodename nor servname provided, or not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connection.py", line 759, in connect
+    self.sock = sock = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connection.py", line 211, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/util/retry.py", line 535, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.wolframalpha.com', port=443): Max retries exceeded with url: /v2/query?appid=3XVYH9L93Q&input=integrate+x%5E2+sin%5E3+x+dx&output=json&format=plaintext (Caused by NameResolutionError("HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/app/wolfram_client.py", line 24, in ask
+    response = requests.get(self._base_url, params=params, timeout=self._timeout_seconds)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.wolframalpha.com', port=443): Max retries exceeded with url: /v2/query?appid=3XVYH9L93Q&input=integrate+x%5E2+sin%5E3+x+dx&output=json&format=plaintext (Caused by NameResolutionError("HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)"))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/app/runner.py", line 82, in run_queries
+    response = client.ask(task.query)
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/app/wolfram_client.py", line 28, in ask
+    raise RuntimeError(f"Network/API request failed for query '{query}': {exc}") from exc
+RuntimeError: Network/API request failed for query 'integrate x^2 sin^3 x dx': HTTPSConnectionPool(host='api.wolframalpha.com', port=443): Max retries exceeded with url: /v2/query?appid=3XVYH9L93Q&input=integrate+x%5E2+sin%5E3+x+dx&output=json&format=plaintext (Caused by NameResolutionError("HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-04-08 00:51:57,249 | INFO | Executing query 2/15: population of Russia 2024
+2026-04-08 00:51:57,249 | INFO | Requesting API for query: population of Russia 2024
+2026-04-08 00:51:57,250 | ERROR | Failed to process query 'population of Russia 2024'
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connection.py", line 204, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/socket.py", line 962, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 8] nodename nor servname provided, or not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connection.py", line 759, in connect
+    self.sock = sock = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connection.py", line 211, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/util/retry.py", line 535, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.wolframalpha.com', port=443): Max retries exceeded with url: /v2/query?appid=3XVYH9L93Q&input=population+of+Russia+2024&output=json&format=plaintext (Caused by NameResolutionError("HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/app/wolfram_client.py", line 24, in ask
+    response = requests.get(self._base_url, params=params, timeout=self._timeout_seconds)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.wolframalpha.com', port=443): Max retries exceeded with url: /v2/query?appid=3XVYH9L93Q&input=population+of+Russia+2024&output=json&format=plaintext (Caused by NameResolutionError("HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)"))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/app/runner.py", line 82, in run_queries
+    response = client.ask(task.query)
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/app/wolfram_client.py", line 28, in ask
+    raise RuntimeError(f"Network/API request failed for query '{query}': {exc}") from exc
+RuntimeError: Network/API request failed for query 'population of Russia 2024': HTTPSConnectionPool(host='api.wolframalpha.com', port=443): Max retries exceeded with url: /v2/query?appid=3XVYH9L93Q&input=population+of+Russia+2024&output=json&format=plaintext (Caused by NameResolutionError("HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-04-08 00:51:57,251 | INFO | Executing query 3/15: molar mass of H2SO4
+2026-04-08 00:51:57,251 | INFO | Requesting API for query: molar mass of H2SO4
+2026-04-08 00:51:57,252 | ERROR | Failed to process query 'molar mass of H2SO4'
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connection.py", line 204, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/socket.py", line 962, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 8] nodename nor servname provided, or not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connection.py", line 759, in connect
+    self.sock = sock = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connection.py", line 211, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/util/retry.py", line 535, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.wolframalpha.com', port=443): Max retries exceeded with url: /v2/query?appid=3XVYH9L93Q&input=molar+mass+of+H2SO4&output=json&format=plaintext (Caused by NameResolutionError("HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/app/wolfram_client.py", line 24, in ask
+    response = requests.get(self._base_url, params=params, timeout=self._timeout_seconds)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.wolframalpha.com', port=443): Max retries exceeded with url: /v2/query?appid=3XVYH9L93Q&input=molar+mass+of+H2SO4&output=json&format=plaintext (Caused by NameResolutionError("HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)"))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/app/runner.py", line 82, in run_queries
+    response = client.ask(task.query)
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/app/wolfram_client.py", line 28, in ask
+    raise RuntimeError(f"Network/API request failed for query '{query}': {exc}") from exc
+RuntimeError: Network/API request failed for query 'molar mass of H2SO4': HTTPSConnectionPool(host='api.wolframalpha.com', port=443): Max retries exceeded with url: /v2/query?appid=3XVYH9L93Q&input=molar+mass+of+H2SO4&output=json&format=plaintext (Caused by NameResolutionError("HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-04-08 00:51:57,253 | INFO | Executing query 4/15: kinetic energy of 5kg object at 10m/s
+2026-04-08 00:51:57,253 | INFO | Requesting API for query: kinetic energy of 5kg object at 10m/s
+2026-04-08 00:51:57,253 | ERROR | Failed to process query 'kinetic energy of 5kg object at 10m/s'
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connection.py", line 204, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/socket.py", line 962, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 8] nodename nor servname provided, or not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connection.py", line 759, in connect
+    self.sock = sock = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connection.py", line 211, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/util/retry.py", line 535, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.wolframalpha.com', port=443): Max retries exceeded with url: /v2/query?appid=3XVYH9L93Q&input=kinetic+energy+of+5kg+object+at+10m%2Fs&output=json&format=plaintext (Caused by NameResolutionError("HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/app/wolfram_client.py", line 24, in ask
+    response = requests.get(self._base_url, params=params, timeout=self._timeout_seconds)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.wolframalpha.com', port=443): Max retries exceeded with url: /v2/query?appid=3XVYH9L93Q&input=kinetic+energy+of+5kg+object+at+10m%2Fs&output=json&format=plaintext (Caused by NameResolutionError("HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)"))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/app/runner.py", line 82, in run_queries
+    response = client.ask(task.query)
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/app/wolfram_client.py", line 28, in ask
+    raise RuntimeError(f"Network/API request failed for query '{query}': {exc}") from exc
+RuntimeError: Network/API request failed for query 'kinetic energy of 5kg object at 10m/s': HTTPSConnectionPool(host='api.wolframalpha.com', port=443): Max retries exceeded with url: /v2/query?appid=3XVYH9L93Q&input=kinetic+energy+of+5kg+object+at+10m%2Fs&output=json&format=plaintext (Caused by NameResolutionError("HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-04-08 00:51:57,254 | INFO | Executing query 5/15: distance between Moscow and Saint Petersburg
+2026-04-08 00:51:57,254 | INFO | Requesting API for query: distance between Moscow and Saint Petersburg
+2026-04-08 00:51:57,255 | ERROR | Failed to process query 'distance between Moscow and Saint Petersburg'
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connection.py", line 204, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/socket.py", line 962, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 8] nodename nor servname provided, or not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connection.py", line 759, in connect
+    self.sock = sock = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connection.py", line 211, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/util/retry.py", line 535, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.wolframalpha.com', port=443): Max retries exceeded with url: /v2/query?appid=3XVYH9L93Q&input=distance+between+Moscow+and+Saint+Petersburg&output=json&format=plaintext (Caused by NameResolutionError("HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/app/wolfram_client.py", line 24, in ask
+    response = requests.get(self._base_url, params=params, timeout=self._timeout_seconds)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.wolframalpha.com', port=443): Max retries exceeded with url: /v2/query?appid=3XVYH9L93Q&input=distance+between+Moscow+and+Saint+Petersburg&output=json&format=plaintext (Caused by NameResolutionError("HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)"))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/app/runner.py", line 82, in run_queries
+    response = client.ask(task.query)
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/app/wolfram_client.py", line 28, in ask
+    raise RuntimeError(f"Network/API request failed for query '{query}': {exc}") from exc
+RuntimeError: Network/API request failed for query 'distance between Moscow and Saint Petersburg': HTTPSConnectionPool(host='api.wolframalpha.com', port=443): Max retries exceeded with url: /v2/query?appid=3XVYH9L93Q&input=distance+between+Moscow+and+Saint+Petersburg&output=json&format=plaintext (Caused by NameResolutionError("HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-04-08 00:51:57,256 | INFO | Executing query 6/15: 100 USD to RUB
+2026-04-08 00:51:57,256 | INFO | Requesting API for query: 100 USD to RUB
+2026-04-08 00:51:57,257 | ERROR | Failed to process query '100 USD to RUB'
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connection.py", line 204, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/socket.py", line 962, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 8] nodename nor servname provided, or not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connection.py", line 759, in connect
+    self.sock = sock = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connection.py", line 211, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/util/retry.py", line 535, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.wolframalpha.com', port=443): Max retries exceeded with url: /v2/query?appid=3XVYH9L93Q&input=100+USD+to+RUB&output=json&format=plaintext (Caused by NameResolutionError("HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/app/wolfram_client.py", line 24, in ask
+    response = requests.get(self._base_url, params=params, timeout=self._timeout_seconds)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.wolframalpha.com', port=443): Max retries exceeded with url: /v2/query?appid=3XVYH9L93Q&input=100+USD+to+RUB&output=json&format=plaintext (Caused by NameResolutionError("HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)"))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/app/runner.py", line 82, in run_queries
+    response = client.ask(task.query)
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/app/wolfram_client.py", line 28, in ask
+    raise RuntimeError(f"Network/API request failed for query '{query}': {exc}") from exc
+RuntimeError: Network/API request failed for query '100 USD to RUB': HTTPSConnectionPool(host='api.wolframalpha.com', port=443): Max retries exceeded with url: /v2/query?appid=3XVYH9L93Q&input=100+USD+to+RUB&output=json&format=plaintext (Caused by NameResolutionError("HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-04-08 00:51:57,257 | INFO | Executing query 7/15: current time in Kazan
+2026-04-08 00:51:57,258 | INFO | Requesting API for query: current time in Kazan
+2026-04-08 00:51:57,258 | ERROR | Failed to process query 'current time in Kazan'
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connection.py", line 204, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/socket.py", line 962, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 8] nodename nor servname provided, or not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connection.py", line 759, in connect
+    self.sock = sock = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connection.py", line 211, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/util/retry.py", line 535, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.wolframalpha.com', port=443): Max retries exceeded with url: /v2/query?appid=3XVYH9L93Q&input=current+time+in+Kazan&output=json&format=plaintext (Caused by NameResolutionError("HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/app/wolfram_client.py", line 24, in ask
+    response = requests.get(self._base_url, params=params, timeout=self._timeout_seconds)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.wolframalpha.com', port=443): Max retries exceeded with url: /v2/query?appid=3XVYH9L93Q&input=current+time+in+Kazan&output=json&format=plaintext (Caused by NameResolutionError("HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)"))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/app/runner.py", line 82, in run_queries
+    response = client.ask(task.query)
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/app/wolfram_client.py", line 28, in ask
+    raise RuntimeError(f"Network/API request failed for query '{query}': {exc}") from exc
+RuntimeError: Network/API request failed for query 'current time in Kazan': HTTPSConnectionPool(host='api.wolframalpha.com', port=443): Max retries exceeded with url: /v2/query?appid=3XVYH9L93Q&input=current+time+in+Kazan&output=json&format=plaintext (Caused by NameResolutionError("HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-04-08 00:51:57,259 | INFO | Executing query 8/15: distance to Mars
+2026-04-08 00:51:57,259 | INFO | Requesting API for query: distance to Mars
+2026-04-08 00:51:57,260 | ERROR | Failed to process query 'distance to Mars'
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connection.py", line 204, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/socket.py", line 962, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 8] nodename nor servname provided, or not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connection.py", line 759, in connect
+    self.sock = sock = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connection.py", line 211, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/util/retry.py", line 535, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.wolframalpha.com', port=443): Max retries exceeded with url: /v2/query?appid=3XVYH9L93Q&input=distance+to+Mars&output=json&format=plaintext (Caused by NameResolutionError("HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/app/wolfram_client.py", line 24, in ask
+    response = requests.get(self._base_url, params=params, timeout=self._timeout_seconds)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.wolframalpha.com', port=443): Max retries exceeded with url: /v2/query?appid=3XVYH9L93Q&input=distance+to+Mars&output=json&format=plaintext (Caused by NameResolutionError("HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)"))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/app/runner.py", line 82, in run_queries
+    response = client.ask(task.query)
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/app/wolfram_client.py", line 28, in ask
+    raise RuntimeError(f"Network/API request failed for query '{query}': {exc}") from exc
+RuntimeError: Network/API request failed for query 'distance to Mars': HTTPSConnectionPool(host='api.wolframalpha.com', port=443): Max retries exceeded with url: /v2/query?appid=3XVYH9L93Q&input=distance+to+Mars&output=json&format=plaintext (Caused by NameResolutionError("HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-04-08 00:51:57,261 | INFO | Executing query 9/15: body mass index 180cm 75kg
+2026-04-08 00:51:57,261 | INFO | Requesting API for query: body mass index 180cm 75kg
+2026-04-08 00:51:57,261 | ERROR | Failed to process query 'body mass index 180cm 75kg'
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connection.py", line 204, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/socket.py", line 962, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 8] nodename nor servname provided, or not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connection.py", line 759, in connect
+    self.sock = sock = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connection.py", line 211, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/util/retry.py", line 535, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.wolframalpha.com', port=443): Max retries exceeded with url: /v2/query?appid=3XVYH9L93Q&input=body+mass+index+180cm+75kg&output=json&format=plaintext (Caused by NameResolutionError("HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/app/wolfram_client.py", line 24, in ask
+    response = requests.get(self._base_url, params=params, timeout=self._timeout_seconds)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.wolframalpha.com', port=443): Max retries exceeded with url: /v2/query?appid=3XVYH9L93Q&input=body+mass+index+180cm+75kg&output=json&format=plaintext (Caused by NameResolutionError("HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)"))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/app/runner.py", line 82, in run_queries
+    response = client.ask(task.query)
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/app/wolfram_client.py", line 28, in ask
+    raise RuntimeError(f"Network/API request failed for query '{query}': {exc}") from exc
+RuntimeError: Network/API request failed for query 'body mass index 180cm 75kg': HTTPSConnectionPool(host='api.wolframalpha.com', port=443): Max retries exceeded with url: /v2/query?appid=3XVYH9L93Q&input=body+mass+index+180cm+75kg&output=json&format=plaintext (Caused by NameResolutionError("HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-04-08 00:51:57,262 | INFO | Executing query 10/15: translate hello to Russian
+2026-04-08 00:51:57,262 | INFO | Requesting API for query: translate hello to Russian
+2026-04-08 00:51:57,263 | ERROR | Failed to process query 'translate hello to Russian'
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connection.py", line 204, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/socket.py", line 962, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 8] nodename nor servname provided, or not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connection.py", line 759, in connect
+    self.sock = sock = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connection.py", line 211, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/util/retry.py", line 535, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.wolframalpha.com', port=443): Max retries exceeded with url: /v2/query?appid=3XVYH9L93Q&input=translate+hello+to+Russian&output=json&format=plaintext (Caused by NameResolutionError("HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/app/wolfram_client.py", line 24, in ask
+    response = requests.get(self._base_url, params=params, timeout=self._timeout_seconds)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.wolframalpha.com', port=443): Max retries exceeded with url: /v2/query?appid=3XVYH9L93Q&input=translate+hello+to+Russian&output=json&format=plaintext (Caused by NameResolutionError("HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)"))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/app/runner.py", line 82, in run_queries
+    response = client.ask(task.query)
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/app/wolfram_client.py", line 28, in ask
+    raise RuntimeError(f"Network/API request failed for query '{query}': {exc}") from exc
+RuntimeError: Network/API request failed for query 'translate hello to Russian': HTTPSConnectionPool(host='api.wolframalpha.com', port=443): Max retries exceeded with url: /v2/query?appid=3XVYH9L93Q&input=translate+hello+to+Russian&output=json&format=plaintext (Caused by NameResolutionError("HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-04-08 00:51:57,264 | INFO | Executing query 11/15: solve x^2 - 5x + 6 = 0
+2026-04-08 00:51:57,264 | INFO | Requesting API for query: solve x^2 - 5x + 6 = 0
+2026-04-08 00:51:57,264 | ERROR | Failed to process query 'solve x^2 - 5x + 6 = 0'
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connection.py", line 204, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/socket.py", line 962, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 8] nodename nor servname provided, or not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connection.py", line 759, in connect
+    self.sock = sock = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connection.py", line 211, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/util/retry.py", line 535, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.wolframalpha.com', port=443): Max retries exceeded with url: /v2/query?appid=3XVYH9L93Q&input=solve+x%5E2+-+5x+%2B+6+%3D+0&output=json&format=plaintext (Caused by NameResolutionError("HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/app/wolfram_client.py", line 24, in ask
+    response = requests.get(self._base_url, params=params, timeout=self._timeout_seconds)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.wolframalpha.com', port=443): Max retries exceeded with url: /v2/query?appid=3XVYH9L93Q&input=solve+x%5E2+-+5x+%2B+6+%3D+0&output=json&format=plaintext (Caused by NameResolutionError("HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)"))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/app/runner.py", line 82, in run_queries
+    response = client.ask(task.query)
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/app/wolfram_client.py", line 28, in ask
+    raise RuntimeError(f"Network/API request failed for query '{query}': {exc}") from exc
+RuntimeError: Network/API request failed for query 'solve x^2 - 5x + 6 = 0': HTTPSConnectionPool(host='api.wolframalpha.com', port=443): Max retries exceeded with url: /v2/query?appid=3XVYH9L93Q&input=solve+x%5E2+-+5x+%2B+6+%3D+0&output=json&format=plaintext (Caused by NameResolutionError("HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-04-08 00:51:57,265 | INFO | Executing query 12/15: prime factors of 123456
+2026-04-08 00:51:57,265 | INFO | Requesting API for query: prime factors of 123456
+2026-04-08 00:51:57,266 | ERROR | Failed to process query 'prime factors of 123456'
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connection.py", line 204, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/socket.py", line 962, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 8] nodename nor servname provided, or not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connection.py", line 759, in connect
+    self.sock = sock = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connection.py", line 211, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/util/retry.py", line 535, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.wolframalpha.com', port=443): Max retries exceeded with url: /v2/query?appid=3XVYH9L93Q&input=prime+factors+of+123456&output=json&format=plaintext (Caused by NameResolutionError("HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/app/wolfram_client.py", line 24, in ask
+    response = requests.get(self._base_url, params=params, timeout=self._timeout_seconds)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.wolframalpha.com', port=443): Max retries exceeded with url: /v2/query?appid=3XVYH9L93Q&input=prime+factors+of+123456&output=json&format=plaintext (Caused by NameResolutionError("HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)"))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/app/runner.py", line 82, in run_queries
+    response = client.ask(task.query)
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/app/wolfram_client.py", line 28, in ask
+    raise RuntimeError(f"Network/API request failed for query '{query}': {exc}") from exc
+RuntimeError: Network/API request failed for query 'prime factors of 123456': HTTPSConnectionPool(host='api.wolframalpha.com', port=443): Max retries exceeded with url: /v2/query?appid=3XVYH9L93Q&input=prime+factors+of+123456&output=json&format=plaintext (Caused by NameResolutionError("HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-04-08 00:51:57,267 | INFO | Executing query 13/15: weather in Kazan
+2026-04-08 00:51:57,267 | INFO | Requesting API for query: weather in Kazan
+2026-04-08 00:51:57,268 | ERROR | Failed to process query 'weather in Kazan'
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connection.py", line 204, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/socket.py", line 962, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 8] nodename nor servname provided, or not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connection.py", line 759, in connect
+    self.sock = sock = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connection.py", line 211, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/util/retry.py", line 535, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.wolframalpha.com', port=443): Max retries exceeded with url: /v2/query?appid=3XVYH9L93Q&input=weather+in+Kazan&output=json&format=plaintext (Caused by NameResolutionError("HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/app/wolfram_client.py", line 24, in ask
+    response = requests.get(self._base_url, params=params, timeout=self._timeout_seconds)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.wolframalpha.com', port=443): Max retries exceeded with url: /v2/query?appid=3XVYH9L93Q&input=weather+in+Kazan&output=json&format=plaintext (Caused by NameResolutionError("HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)"))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/app/runner.py", line 82, in run_queries
+    response = client.ask(task.query)
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/app/wolfram_client.py", line 28, in ask
+    raise RuntimeError(f"Network/API request failed for query '{query}': {exc}") from exc
+RuntimeError: Network/API request failed for query 'weather in Kazan': HTTPSConnectionPool(host='api.wolframalpha.com', port=443): Max retries exceeded with url: /v2/query?appid=3XVYH9L93Q&input=weather+in+Kazan&output=json&format=plaintext (Caused by NameResolutionError("HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-04-08 00:51:57,268 | INFO | Executing query 14/15: average human heart rate
+2026-04-08 00:51:57,268 | INFO | Requesting API for query: average human heart rate
+2026-04-08 00:51:57,269 | ERROR | Failed to process query 'average human heart rate'
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connection.py", line 204, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/socket.py", line 962, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 8] nodename nor servname provided, or not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connection.py", line 759, in connect
+    self.sock = sock = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connection.py", line 211, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/util/retry.py", line 535, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.wolframalpha.com', port=443): Max retries exceeded with url: /v2/query?appid=3XVYH9L93Q&input=average+human+heart+rate&output=json&format=plaintext (Caused by NameResolutionError("HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/app/wolfram_client.py", line 24, in ask
+    response = requests.get(self._base_url, params=params, timeout=self._timeout_seconds)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.wolframalpha.com', port=443): Max retries exceeded with url: /v2/query?appid=3XVYH9L93Q&input=average+human+heart+rate&output=json&format=plaintext (Caused by NameResolutionError("HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)"))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/app/runner.py", line 82, in run_queries
+    response = client.ask(task.query)
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/app/wolfram_client.py", line 28, in ask
+    raise RuntimeError(f"Network/API request failed for query '{query}': {exc}") from exc
+RuntimeError: Network/API request failed for query 'average human heart rate': HTTPSConnectionPool(host='api.wolframalpha.com', port=443): Max retries exceeded with url: /v2/query?appid=3XVYH9L93Q&input=average+human+heart+rate&output=json&format=plaintext (Caused by NameResolutionError("HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-04-08 00:51:57,270 | INFO | Executing query 15/15: highest mountain in Europe
+2026-04-08 00:51:57,270 | INFO | Requesting API for query: highest mountain in Europe
+2026-04-08 00:51:57,270 | ERROR | Failed to process query 'highest mountain in Europe'
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connection.py", line 204, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/socket.py", line 962, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 8] nodename nor servname provided, or not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connection.py", line 759, in connect
+    self.sock = sock = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connection.py", line 211, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/util/retry.py", line 535, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.wolframalpha.com', port=443): Max retries exceeded with url: /v2/query?appid=3XVYH9L93Q&input=highest+mountain+in+Europe&output=json&format=plaintext (Caused by NameResolutionError("HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/app/wolfram_client.py", line 24, in ask
+    response = requests.get(self._base_url, params=params, timeout=self._timeout_seconds)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.wolframalpha.com', port=443): Max retries exceeded with url: /v2/query?appid=3XVYH9L93Q&input=highest+mountain+in+Europe&output=json&format=plaintext (Caused by NameResolutionError("HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)"))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/app/runner.py", line 82, in run_queries
+    response = client.ask(task.query)
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/app/wolfram_client.py", line 28, in ask
+    raise RuntimeError(f"Network/API request failed for query '{query}': {exc}") from exc
+RuntimeError: Network/API request failed for query 'highest mountain in Europe': HTTPSConnectionPool(host='api.wolframalpha.com', port=443): Max retries exceeded with url: /v2/query?appid=3XVYH9L93Q&input=highest+mountain+in+Europe&output=json&format=plaintext (Caused by NameResolutionError("HTTPSConnection(host='api.wolframalpha.com', port=443): Failed to resolve 'api.wolframalpha.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-04-08 00:51:57,272 | INFO | All queries finished
+2026-04-08 00:51:57,272 | INFO | Extracted results saved to /Users/malikmuhametzanov/PycharmProjects/burn/lab1/outputs/extracted_results.json
+2026-04-08 00:51:57,272 | INFO | Human-readable report saved to /Users/malikmuhametzanov/PycharmProjects/burn/lab1/outputs/human_readable_report.txt
+2026-04-08 00:52:12,016 | INFO | Starting Wolfram Alpha lab runner
+2026-04-08 00:52:12,016 | INFO | Executing query 1/15: integrate x^2 sin^3 x dx
+2026-04-08 00:52:12,016 | INFO | Requesting API for query: integrate x^2 sin^3 x dx
+2026-04-08 00:52:16,479 | INFO | Executing query 2/15: population of Russia 2024
+2026-04-08 00:52:16,479 | INFO | Requesting API for query: population of Russia 2024
+2026-04-08 00:52:20,386 | INFO | Executing query 3/15: molar mass of H2SO4
+2026-04-08 00:52:20,386 | INFO | Requesting API for query: molar mass of H2SO4
+2026-04-08 00:52:22,132 | INFO | Executing query 4/15: kinetic energy of 5kg object at 10m/s
+2026-04-08 00:52:22,132 | INFO | Requesting API for query: kinetic energy of 5kg object at 10m/s
+2026-04-08 00:52:23,967 | INFO | Executing query 5/15: distance between Moscow and Saint Petersburg
+2026-04-08 00:52:23,967 | INFO | Requesting API for query: distance between Moscow and Saint Petersburg
+2026-04-08 00:52:26,039 | INFO | Executing query 6/15: 100 USD to RUB
+2026-04-08 00:52:26,039 | INFO | Requesting API for query: 100 USD to RUB
+2026-04-08 00:52:28,487 | INFO | Executing query 7/15: current time in Kazan
+2026-04-08 00:52:28,487 | INFO | Requesting API for query: current time in Kazan
+2026-04-08 00:52:29,768 | INFO | Executing query 8/15: distance to Mars
+2026-04-08 00:52:29,769 | INFO | Requesting API for query: distance to Mars
+2026-04-08 00:52:31,448 | INFO | Executing query 9/15: body mass index 180cm 75kg
+2026-04-08 00:52:31,448 | INFO | Requesting API for query: body mass index 180cm 75kg
+2026-04-08 00:52:34,588 | INFO | Executing query 10/15: translate hello to Russian
+2026-04-08 00:52:34,588 | INFO | Requesting API for query: translate hello to Russian
+2026-04-08 00:52:54,888 | ERROR | Failed to process query 'translate hello to Russian'
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connection.py", line 571, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/http/client.py", line 1395, in getresponse
+    response.begin()
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/http/client.py", line 325, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/http/client.py", line 286, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/socket.py", line 706, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/ssl.py", line 1314, in recv_into
+    return self.read(nbytes, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/ssl.py", line 1166, in read
+    return self._sslobj.read(len, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/util/retry.py", line 490, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/util/util.py", line 39, in reraise
+    raise value
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 367, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='api.wolframalpha.com', port=443): Read timed out. (read timeout=20)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/app/wolfram_client.py", line 24, in ask
+    response = requests.get(self._base_url, params=params, timeout=self._timeout_seconds)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/adapters.py", line 713, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='api.wolframalpha.com', port=443): Read timed out. (read timeout=20)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/app/runner.py", line 82, in run_queries
+    response = client.ask(task.query)
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/app/wolfram_client.py", line 28, in ask
+    raise RuntimeError(f"Network/API request failed for query '{query}': {exc}") from exc
+RuntimeError: Network/API request failed for query 'translate hello to Russian': HTTPSConnectionPool(host='api.wolframalpha.com', port=443): Read timed out. (read timeout=20)
+2026-04-08 00:52:54,895 | INFO | Executing query 11/15: solve x^2 - 5x + 6 = 0
+2026-04-08 00:52:54,895 | INFO | Requesting API for query: solve x^2 - 5x + 6 = 0
+2026-04-08 00:52:56,373 | INFO | Executing query 12/15: prime factors of 123456
+2026-04-08 00:52:56,373 | INFO | Requesting API for query: prime factors of 123456
+2026-04-08 00:52:57,388 | INFO | Executing query 13/15: weather in Kazan
+2026-04-08 00:52:57,388 | INFO | Requesting API for query: weather in Kazan
+2026-04-08 00:53:01,479 | INFO | Executing query 14/15: average human heart rate
+2026-04-08 00:53:01,479 | INFO | Requesting API for query: average human heart rate
+2026-04-08 00:53:02,606 | INFO | Executing query 15/15: highest mountain in Europe
+2026-04-08 00:53:02,607 | INFO | Requesting API for query: highest mountain in Europe
+2026-04-08 00:53:22,903 | ERROR | Failed to process query 'highest mountain in Europe'
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connection.py", line 571, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/http/client.py", line 1395, in getresponse
+    response.begin()
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/http/client.py", line 325, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/http/client.py", line 286, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/socket.py", line 706, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/ssl.py", line 1314, in recv_into
+    return self.read(nbytes, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/ssl.py", line 1166, in read
+    return self._sslobj.read(len, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/util/retry.py", line 490, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/util/util.py", line 39, in reraise
+    raise value
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 367, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='api.wolframalpha.com', port=443): Read timed out. (read timeout=20)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/app/wolfram_client.py", line 24, in ask
+    response = requests.get(self._base_url, params=params, timeout=self._timeout_seconds)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/adapters.py", line 713, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='api.wolframalpha.com', port=443): Read timed out. (read timeout=20)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/app/runner.py", line 82, in run_queries
+    response = client.ask(task.query)
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/app/wolfram_client.py", line 28, in ask
+    raise RuntimeError(f"Network/API request failed for query '{query}': {exc}") from exc
+RuntimeError: Network/API request failed for query 'highest mountain in Europe': HTTPSConnectionPool(host='api.wolframalpha.com', port=443): Read timed out. (read timeout=20)
+2026-04-08 00:53:22,906 | INFO | All queries finished
+2026-04-08 00:53:22,907 | INFO | Extracted results saved to /Users/malikmuhametzanov/PycharmProjects/burn/lab1/outputs/extracted_results.json
+2026-04-08 00:53:22,907 | INFO | Human-readable report saved to /Users/malikmuhametzanov/PycharmProjects/burn/lab1/outputs/human_readable_report.txt
+2026-04-08 00:54:25,126 | INFO | Starting Wolfram Alpha lab runner
+2026-04-08 00:54:25,126 | INFO | Executing query 1/15: integrate x^2 sin^3 x dx
+2026-04-08 00:54:25,126 | INFO | Requesting API for query: integrate x^2 sin^3 x dx
+2026-04-08 00:54:29,251 | INFO | Executing query 2/15: population of Russia 2024
+2026-04-08 00:54:29,251 | INFO | Requesting API for query: population of Russia 2024
+2026-04-08 00:54:34,848 | INFO | Executing query 3/15: molar mass of H2SO4
+2026-04-08 00:54:34,849 | INFO | Requesting API for query: molar mass of H2SO4
+2026-04-08 00:54:36,373 | INFO | Executing query 4/15: kinetic energy of 5kg object at 10m/s
+2026-04-08 00:54:36,373 | INFO | Requesting API for query: kinetic energy of 5kg object at 10m/s
+2026-04-08 00:54:38,291 | INFO | Executing query 5/15: distance between Moscow and Saint Petersburg
+2026-04-08 00:54:38,291 | INFO | Requesting API for query: distance between Moscow and Saint Petersburg
+2026-04-08 00:54:40,273 | INFO | Executing query 6/15: 100 USD to RUB
+2026-04-08 00:54:40,273 | INFO | Requesting API for query: 100 USD to RUB
+2026-04-08 00:54:42,802 | INFO | Executing query 7/15: current time in Kazan
+2026-04-08 00:54:42,802 | INFO | Requesting API for query: current time in Kazan
+2026-04-08 00:54:44,196 | INFO | Executing query 8/15: distance to Mars
+2026-04-08 00:54:44,196 | INFO | Requesting API for query: distance to Mars
+2026-04-08 00:54:46,517 | INFO | Executing query 9/15: body mass index 180cm 75kg
+2026-04-08 00:54:46,517 | INFO | Requesting API for query: body mass index 180cm 75kg
+2026-04-08 00:55:06,814 | WARNING | Attempt 1/3 failed for query 'body mass index 180cm 75kg': HTTPSConnectionPool(host='api.wolframalpha.com', port=443): Read timed out. (read timeout=20). Retrying...
+2026-04-08 00:55:10,966 | INFO | Executing query 10/15: translate hello to Russian
+2026-04-08 00:55:10,966 | INFO | Requesting API for query: translate hello to Russian
+2026-04-08 00:55:11,906 | INFO | Executing query 11/15: solve x^2 - 5x + 6 = 0
+2026-04-08 00:55:11,906 | INFO | Requesting API for query: solve x^2 - 5x + 6 = 0
+2026-04-08 00:55:13,023 | INFO | Executing query 12/15: prime factors of 123456
+2026-04-08 00:55:13,024 | INFO | Requesting API for query: prime factors of 123456
+2026-04-08 00:55:13,964 | INFO | Executing query 13/15: weather in Kazan
+2026-04-08 00:55:13,964 | INFO | Requesting API for query: weather in Kazan
+2026-04-08 00:55:34,260 | WARNING | Attempt 1/3 failed for query 'weather in Kazan': HTTPSConnectionPool(host='api.wolframalpha.com', port=443): Read timed out. (read timeout=20). Retrying...
+2026-04-08 00:55:39,762 | INFO | Executing query 14/15: average human heart rate
+2026-04-08 00:55:39,762 | INFO | Requesting API for query: average human heart rate
+2026-04-08 00:55:41,193 | INFO | Executing query 15/15: highest mountain in Europe
+2026-04-08 00:55:41,193 | INFO | Requesting API for query: highest mountain in Europe
+2026-04-08 00:55:44,187 | INFO | All queries finished
+2026-04-08 00:55:44,187 | INFO | Extracted results saved to /Users/malikmuhametzanov/PycharmProjects/burn/lab1/outputs/extracted_results.json
+2026-04-08 00:55:44,187 | INFO | Human-readable report saved to /Users/malikmuhametzanov/PycharmProjects/burn/lab1/outputs/human_readable_report.txt
+2026-04-08 01:22:47,746 | INFO | Starting Wolfram Alpha lab runner
+2026-04-08 01:22:47,746 | INFO | Executing query 1/15: integrate x^2 sin^3 x dx
+2026-04-08 01:22:47,746 | INFO | Requesting API for query: integrate x^2 sin^3 x dx
+2026-04-08 01:22:52,246 | INFO | Executing query 2/15: population of Russia 2024
+2026-04-08 01:22:52,246 | INFO | Requesting API for query: population of Russia 2024
+2026-04-08 01:22:55,934 | INFO | Executing query 3/15: molar mass of H2SO4
+2026-04-08 01:22:55,934 | INFO | Requesting API for query: molar mass of H2SO4
+2026-04-08 01:22:57,980 | INFO | Executing query 4/15: kinetic energy of 5kg object at 10m/s
+2026-04-08 01:22:57,980 | INFO | Requesting API for query: kinetic energy of 5kg object at 10m/s
+2026-04-08 01:23:00,029 | INFO | Executing query 5/15: distance between Moscow and Saint Petersburg
+2026-04-08 01:23:00,029 | INFO | Requesting API for query: distance between Moscow and Saint Petersburg
+2026-04-08 01:23:01,935 | INFO | Executing query 6/15: 100 USD to RUB
+2026-04-08 01:23:01,935 | INFO | Requesting API for query: 100 USD to RUB
+2026-04-08 01:23:04,022 | INFO | Executing query 7/15: current time in Kazan
+2026-04-08 01:23:04,022 | INFO | Requesting API for query: current time in Kazan
+2026-04-08 01:23:05,559 | INFO | Executing query 8/15: distance to Mars
+2026-04-08 01:23:05,559 | INFO | Requesting API for query: distance to Mars
+2026-04-08 01:23:08,017 | INFO | Executing query 9/15: body mass index 180cm 75kg
+2026-04-08 01:23:08,017 | INFO | Requesting API for query: body mass index 180cm 75kg
+2026-04-08 01:23:11,225 | INFO | Executing query 10/15: translate hello to Russian
+2026-04-08 01:23:11,225 | INFO | Requesting API for query: translate hello to Russian
+2026-04-08 01:23:12,297 | INFO | Executing query 11/15: solve x^2 - 5x + 6 = 0
+2026-04-08 01:23:12,297 | INFO | Requesting API for query: solve x^2 - 5x + 6 = 0
+2026-04-08 01:23:13,499 | INFO | Executing query 12/15: prime factors of 123456
+2026-04-08 01:23:13,499 | INFO | Requesting API for query: prime factors of 123456
+2026-04-08 01:23:14,354 | INFO | Executing query 13/15: weather in Kazan
+2026-04-08 01:23:14,354 | INFO | Requesting API for query: weather in Kazan
+2026-04-08 01:23:18,883 | INFO | Executing query 14/15: average human heart rate
+2026-04-08 01:23:18,883 | INFO | Requesting API for query: average human heart rate
+2026-04-08 01:23:19,996 | INFO | Executing query 15/15: highest mountain in Europe
+2026-04-08 01:23:19,996 | INFO | Requesting API for query: highest mountain in Europe
+2026-04-08 01:23:23,070 | INFO | All queries finished
+2026-04-08 01:23:23,070 | INFO | Extracted results saved to /Users/malikmuhametzanov/PycharmProjects/burn/lab1/outputs/extracted_results.json
+2026-04-08 01:23:23,070 | INFO | Human-readable report saved to /Users/malikmuhametzanov/PycharmProjects/burn/lab1/outputs/human_readable_report.txt

@@ -1,0 +1,101 @@
+{
+  "queryresult": {
+    "success": true,
+    "error": false,
+    "numpods": 2,
+    "datatypes": "Translation",
+    "parsetiming": 0.203,
+    "parsetimedout": false,
+    "id": "YD/rIg7Mpu0=6:eJxTTMoPSmNkYGAoZgESHvk5KWnMIB4bkHDNK8ksqQzmBjJDihLzinMSSzLz8yDyINU+mcUlwexghek5mcUZwaxAdkZqTk4+WDSotLg4MzEvjQFZPQB/uxm6",
+    "kernelId": "28",
+    "processId": 52715,
+    "version": "2.6",
+    "inputstring": "translate hello to Russian",
+    "sbsallowed": false,
+    "parentId": "9e7d9b8e-f327-4dd8-9983-5ce5e8332daa",
+    "requestId": "9e7d9b8e-f327-4dd8-9983-5ce5e8332daa",
+    "pods": [
+      {
+        "title": "Input interpretation",
+        "scanner": "Identity",
+        "id": "Input",
+        "position": 1,
+        "error": false,
+        "numsubpods": 1,
+        "subpods": [
+          {
+            "title": "",
+            "plaintext": "translate | hello | to Russian"
+          }
+        ],
+        "expressiontypes": {
+          "name": "Default"
+        }
+      },
+      {
+        "title": "Results",
+        "scanner": "Data",
+        "id": "Result",
+        "position": 200,
+        "error": false,
+        "numsubpods": 1,
+        "subpods": [
+          {
+            "title": "",
+            "microsources": [
+              "TranslationData"
+            ],
+            "plaintext": "(noun) привет | приветствие\nЗдравствуйте"
+          }
+        ],
+        "expressiontypes": {
+          "name": "Grid"
+        }
+      }
+    ],
+    "assumptions": [
+      {
+        "type": "SubCategory",
+        "word": "hello",
+        "template": "Assuming ${desc1}. Use ${desc2} instead",
+        "count": 5,
+        "values": [
+          {
+            "name": "{English, hello, Russian}",
+            "desc": "translation to Russian",
+            "input": "%2ADPClash.TranslationE.hello-_%2A%2AEnglish.hello.Russian--"
+          },
+          {
+            "name": "{French, hello, Russian}",
+            "desc": "translation from French to Russian",
+            "input": "%2ADPClash.TranslationE.hello-_%2A%2AFrench.hello.Russian--"
+          },
+          {
+            "name": "{Malay, hello, Russian}",
+            "desc": "translation from Malay to Russian",
+            "input": "%2ADPClash.TranslationE.hello-_%2A%2AMalay.hello.Russian--"
+          },
+          {
+            "name": "{Ilocano, hello, Russian}",
+            "desc": "translation from Iloko to Russian",
+            "input": "%2ADPClash.TranslationE.hello-_%2A%2AIlocano.hello.Russian--"
+          },
+          {
+            "name": "{FulfuldeAdamawa, hello, Russian}",
+            "desc": "translation from Adamawa Fulfulde to Russian",
+            "input": "%2ADPClash.TranslationE.hello-_%2A%2AFulfuldeAdamawa.hello.Russian--"
+          }
+        ]
+      }
+    ],
+    "timing": 0.406,
+    "timedout": "",
+    "timedoutpods": "",
+    "sources": [
+      {
+        "url": "https://www6b3.wolframalpha.com/sources/TranslationDataSourceInformationNotes.html",
+        "text": "Translation data"
+      }
+    ]
+  }
+}

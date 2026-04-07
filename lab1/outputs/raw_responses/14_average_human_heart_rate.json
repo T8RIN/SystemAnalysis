@@ -1,0 +1,127 @@
+{
+  "queryresult": {
+    "success": true,
+    "error": false,
+    "numpods": 4,
+    "datatypes": "Species",
+    "parsetiming": 0.324,
+    "parsetimedout": false,
+    "id": "a0yZwVnSW3s=6:eJxVjj8LwjAQxeMf1N3JUXD2A7hpLXRQKGZw7VkveNDmQnKF+u1NEFtcfry747132wffzEQpFeYRBTdPM03TPiKDpu4aECzBB6wytoJWqmE9qjMImFnyLSJyKyRvvYxSO6wJg16P+lBwyxocoQ1G/ZovFOSbsIooPTv0MWMz+lJH3ouHMFx36WUELycECSX6K9lO8E7yOjrnuacWhNj+13wABCpH5w==",
+    "kernelId": "38",
+    "processId": 79539,
+    "version": "2.6",
+    "inputstring": "average human heart rate",
+    "sbsallowed": false,
+    "sources": [
+      {
+        "url": "https://www6b3.wolframalpha.com/sources/SpeciesDataSourceInformationNotes.html",
+        "text": "Species data"
+      }
+    ],
+    "parentId": "a547b8f8-b956-48a7-9a63-b81667651728",
+    "requestId": "a547b8f8-b956-48a7-9a63-b81667651728",
+    "pods": [
+      {
+        "title": "Input interpretation",
+        "scanner": "Identity",
+        "id": "Input",
+        "position": 1,
+        "error": false,
+        "numsubpods": 1,
+        "subpods": [
+          {
+            "title": "",
+            "plaintext": "human | heart rate"
+          }
+        ],
+        "expressiontypes": {
+          "name": "Grid"
+        }
+      },
+      {
+        "title": "Result",
+        "scanner": "Data",
+        "id": "Result",
+        "position": 10,
+        "error": false,
+        "numsubpods": 1,
+        "primary": true,
+        "subpods": [
+          {
+            "title": "",
+            "microsources": [
+              "SpeciesData"
+            ],
+            "plaintext": "(60 to 100) bpm (beats per minute)"
+          }
+        ],
+        "expressiontypes": {
+          "name": "Default"
+        }
+      },
+      {
+        "title": "Unit conversion",
+        "scanner": "Unit",
+        "id": "UnitConversion",
+        "position": 2200,
+        "error": false,
+        "numsubpods": 1,
+        "subpods": [
+          {
+            "title": "",
+            "plaintext": "(1 to 1.667) bps (beats per second)"
+          }
+        ],
+        "expressiontypes": {
+          "name": "Default"
+        }
+      },
+      {
+        "title": "Corresponding quantities",
+        "scanner": "Unit",
+        "id": "CorrespondingQuantity",
+        "position": 2280,
+        "error": false,
+        "numsubpods": 2,
+        "subpods": [
+          {
+            "title": "",
+            "plaintext": "Beat frequency ν assuming 1 beat per second equals 1 Hz:\n | (1 to 1.7) Hz (hertz)"
+          },
+          {
+            "title": "",
+            "plaintext": "Beat period T from T = beats/beat rate:\n | (0.6 to 1) seconds"
+          }
+        ],
+        "expressiontypes": {
+          "name": "Default"
+        }
+      }
+    ],
+    "assumptions": [
+      {
+        "type": "MultiClash",
+        "word": "",
+        "template": "Assuming ${word1} is referring to ${desc1}. Use \"${word2}\" as ${desc2}.",
+        "count": 2,
+        "values": [
+          {
+            "name": "Species",
+            "word": "average human",
+            "desc": "a species specification",
+            "input": "%2AMC.~-_%2ASpecies-"
+          },
+          {
+            "name": "Miscellaneous",
+            "word": "",
+            "desc": "a quantity",
+            "input": "%2AMC.~-_%2AMiscellaneous-"
+          }
+        ]
+      }
+    ],
+    "timing": 0.642,
+    "timedout": "",
+    "timedoutpods": ""
+  }
+}

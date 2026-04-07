@@ -1,0 +1,75 @@
+{
+  "queryresult": {
+    "success": true,
+    "error": false,
+    "numpods": 3,
+    "datatypes": "Factor",
+    "parsetiming": 0.13,
+    "parsetimedout": false,
+    "id": "QS86ynkcG70=6:eJxTTMoPSmNkYGAoZgESHvk5KWlMIJ4BkHBOzEkuzUksSQ1ILCpOTXDOzytJzStJgAsjWG6JySX5RZkOjxgZINpBhgWV5qQGcwEZENmQyoLUYA4gN7gkMS8lsSgFAFhUI6E=",
+    "kernelId": "50",
+    "processId": 94556,
+    "version": "2.6",
+    "inputstring": "prime factors of 123456",
+    "sbsallowed": false,
+    "parentId": "6330f50a-9146-4963-8af7-f89a59da98b4",
+    "requestId": "6330f50a-9146-4963-8af7-f89a59da98b4",
+    "pods": [
+      {
+        "title": "Input interpretation",
+        "scanner": "Identity",
+        "id": "Input",
+        "position": 1,
+        "error": false,
+        "numsubpods": 1,
+        "subpods": [
+          {
+            "title": "",
+            "plaintext": "factor | 123456"
+          }
+        ],
+        "expressiontypes": {
+          "name": "Default"
+        }
+      },
+      {
+        "title": "Result",
+        "scanner": "Factor",
+        "id": "Result",
+        "position": 99.9,
+        "error": false,
+        "numsubpods": 1,
+        "primary": true,
+        "subpods": [
+          {
+            "title": "",
+            "plaintext": "2^6×3×643 (8 prime factors, 3 distinct)"
+          }
+        ],
+        "expressiontypes": {
+          "name": "Default"
+        }
+      },
+      {
+        "title": "Divisors",
+        "scanner": "Factor",
+        "id": "Divisors",
+        "position": 100,
+        "error": false,
+        "numsubpods": 1,
+        "subpods": [
+          {
+            "title": "",
+            "plaintext": "1 | 2 | 3 | 4 | 6 | 8 | 12 | 16 | 24 | 32 | 48 | 64 | 96 | 192 | 643 | 1286 | 1929 | 2572 | 3858 | 5144 | 7716 | 10288 | 15432 | 20576 | 30864 | 41152 | 61728 | 123456 (28 divisors)"
+          }
+        ],
+        "expressiontypes": {
+          "name": "Grid"
+        }
+      }
+    ],
+    "timing": 0.386,
+    "timedout": "",
+    "timedoutpods": ""
+  }
+}

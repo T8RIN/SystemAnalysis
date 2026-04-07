@@ -1,0 +1,695 @@
+{
+  "generated_at": "2026-04-08T01:23:23",
+  "total_queries": 15,
+  "results": [
+    {
+      "id": 1,
+      "title": "Математический расчет",
+      "query": "integrate x^2 sin^3 x dx",
+      "required": true,
+      "status": "ok",
+      "parsed": {
+        "success": true,
+        "error": false,
+        "numpods": 3,
+        "summary": "integral x^2 sin^3(x) dx = 1/108 (-81 (x^2 - 2) cos(x) + (9 x^2 - 2) cos(3 x) - 6 x (sin(3 x) - 27 sin(x))) + constant",
+        "pods": [
+          {
+            "title": "Indefinite integral",
+            "plaintext": [
+              "integral x^2 sin^3(x) dx = 1/108 (-81 (x^2 - 2) cos(x) + (9 x^2 - 2) cos(3 x) - 6 x (sin(3 x) - 27 sin(x))) + constant"
+            ]
+          },
+          {
+            "title": "Series expansion of the integral at x = 0",
+            "plaintext": [
+              "40/27 + x^6/6 - x^8/16 + O(x^9)\n(Taylor series)"
+            ]
+          }
+        ]
+      },
+      "raw_file": "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/outputs/raw_responses/01_integrate_x_2_sin_3_x_dx.json",
+      "error": null
+    },
+    {
+      "id": 2,
+      "title": "Фактологический запрос",
+      "query": "population of Russia 2024",
+      "required": true,
+      "status": "ok",
+      "parsed": {
+        "success": true,
+        "error": false,
+        "numpods": 8,
+        "summary": "145 million people (2023 projection) (world rank: 9th) (2024 estimate)",
+        "pods": [
+          {
+            "title": "Input interpretation",
+            "plaintext": [
+              "Russia | population | 2024"
+            ]
+          },
+          {
+            "title": "Result",
+            "plaintext": [
+              "145 million people (2023 projection) (world rank: 9th) (2024 estimate)"
+            ]
+          },
+          {
+            "title": "Demographics",
+            "plaintext": [
+              "population | 145 million people (2023 projection) (world rank: 9th) (2024 estimate)\npopulation density | 8.84 people/km^2 (people per square kilometer) (world rank: 222nd) (2024 estimate)"
+            ]
+          },
+          {
+            "title": "Largest cities",
+            "plaintext": [
+              "city | population\nMoscow, Central | 13.01 million people\nSaint Petersburg, Admiralteysky | 5.602 million people\nNovosibirsk | 1.634 million people\nYekaterinburg | 1.344 million people\nNizhny Novgorod | 1.213 million people\n(2006, 2010, 2015, 2016, 2017, 2018, 2021, 2023, and 2024 estimates)"
+            ]
+          },
+          {
+            "title": "Comparisons",
+            "plaintext": [
+              "≈ ( 0.019 ≈ 1/54 ) × world population ( 7.795 billion people )",
+              "≈ 0.69 × current population of Brazil ( 209.3 million people )",
+              "≈ 1.4 × current population of Philippines ( 104.9 million people )"
+            ]
+          }
+        ]
+      },
+      "raw_file": "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/outputs/raw_responses/02_population_of_russia_2024.json",
+      "error": null
+    },
+    {
+      "id": 3,
+      "title": "Химический расчет",
+      "query": "molar mass of H2SO4",
+      "required": true,
+      "status": "ok",
+      "parsed": {
+        "success": true,
+        "error": false,
+        "numpods": 5,
+        "summary": "98.07 g/mol (grams per mole)",
+        "pods": [
+          {
+            "title": "Input interpretation",
+            "plaintext": [
+              "sulfuric acid | molar mass"
+            ]
+          },
+          {
+            "title": "Result",
+            "plaintext": [
+              "98.07 g/mol (grams per mole)"
+            ]
+          },
+          {
+            "title": "Unit conversion",
+            "plaintext": [
+              "0.09807 kg/mol (kilograms per mole)"
+            ]
+          },
+          {
+            "title": "Comparisons",
+            "plaintext": [
+              "≈ ( 0.14 ≈ 1/7 ) × molar mass of fullerene ( 720.642 g/mol )",
+              "≈ 0.51 × molar mass of caffeine ( 194.191 g/mol )",
+              "≈ 1.7 × molar mass of sodium chloride ( 58.443 g/mol )"
+            ]
+          },
+          {
+            "title": "Corresponding quantities",
+            "plaintext": [
+              "Mass of a molecule m from m = M/N_A:\n | 1.6×10^-22 grams\n | 1.6×10^-25 kg (kilograms)\n | 98 u (unified atomic mass units)\n | 98 Da (daltons)",
+              "Relative molecular mass M_r from M_r = M_u/M:\n | 98"
+            ]
+          }
+        ]
+      },
+      "raw_file": "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/outputs/raw_responses/03_molar_mass_of_h2so4.json",
+      "error": null
+    },
+    {
+      "id": 4,
+      "title": "Физический расчет",
+      "query": "kinetic energy of 5kg object at 10m/s",
+      "required": true,
+      "status": "ok",
+      "parsed": {
+        "success": true,
+        "error": false,
+        "numpods": 3,
+        "summary": "kinetic energy | 250 J (joules)\n= 0.06944 W h (watt hours)\n= 1.56×10^12 GeV (gigaelectronvolts)",
+        "pods": [
+          {
+            "title": "Input information",
+            "plaintext": [
+              "kinetic energy | \nmass | 5 kg (kilograms)\nvelocity | 10 m/s (meters per second)"
+            ]
+          },
+          {
+            "title": "Result",
+            "plaintext": [
+              "kinetic energy | 250 J (joules)\n= 0.06944 W h (watt hours)\n= 1.56×10^12 GeV (gigaelectronvolts)"
+            ]
+          },
+          {
+            "title": "Equation",
+            "plaintext": [
+              "K = (m v^2)/2 | \nK | kinetic energy\nm | mass\nv | velocity\n(the energy of an object due to its motion)"
+            ]
+          }
+        ]
+      },
+      "raw_file": "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/outputs/raw_responses/04_kinetic_energy_of_5kg_object_at_10m_s.json",
+      "error": null
+    },
+    {
+      "id": 5,
+      "title": "Географический",
+      "query": "distance between Moscow and Saint Petersburg",
+      "required": true,
+      "status": "ok",
+      "parsed": {
+        "success": true,
+        "error": false,
+        "numpods": 5,
+        "summary": "636.2 km (kilometers)",
+        "pods": [
+          {
+            "title": "Input interpretation",
+            "plaintext": [
+              "distance | from | Moscow, Tsentralniy, Russia\nto | Saint Petersburg, Admiralteyskiy, Russia"
+            ]
+          },
+          {
+            "title": "Result",
+            "plaintext": [
+              "636.2 km (kilometers)"
+            ]
+          },
+          {
+            "title": "Unit conversions",
+            "plaintext": [
+              "395.3 miles",
+              "636.2 km (kilometers)",
+              "636161 meters",
+              "6.362×10^7 cm (centimeters)",
+              "343.5 nmi (nautical miles)"
+            ]
+          },
+          {
+            "title": "Direct travel times",
+            "plaintext": [
+              "aircraft (885 km/h) | 43 minutes\nsound | 31 minutes\nlight in fiber | 3 ms (milliseconds)\nlight in vacuum | 2 ms (milliseconds)\n(assuming constant-speed great-circle path)"
+            ]
+          }
+        ]
+      },
+      "raw_file": "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/outputs/raw_responses/05_distance_between_moscow_and_saint_petersburg.json",
+      "error": null
+    },
+    {
+      "id": 6,
+      "title": "Финансовый",
+      "query": "100 USD to RUB",
+      "required": true,
+      "status": "ok",
+      "parsed": {
+        "success": true,
+        "error": false,
+        "numpods": 5,
+        "summary": "8018.73 ₽ (Russian rubles) (^6/_4-2026)",
+        "pods": [
+          {
+            "title": "Input interpretation",
+            "plaintext": [
+              "convert $100 (US dollars) to Russian rubles"
+            ]
+          },
+          {
+            "title": "Result",
+            "plaintext": [
+              "8018.73 ₽ (Russian rubles) (^6/_4-2026)"
+            ]
+          },
+          {
+            "title": "Local currency conversion for $100 (US dollars)",
+            "plaintext": [
+              "646.58 kr (Danish kroner) (^7/_4-2026)"
+            ]
+          },
+          {
+            "title": "Exchange history for $100 (US dollars)",
+            "plaintext": [
+              "1-year minimum | 7492.88 ₽ (^25/_1-2026 | 2 months ago)\n1-year maximum | 8615.31 ₽ (^9/_4-2025 | 12 months ago)\n1-year average | 7987.10 ₽ (annualized volatility: 13%)"
+            ]
+          },
+          {
+            "title": "Additional currency conversions for $100 (US dollars)",
+            "plaintext": [
+              "EUR | €86.53 (euros)\nCNY | ￥685.74 (Chinese yuan)\nJPY | ¥15984 (Japanese yen)\nGBP | £75.50 (British pounds)\nCAD | C$139.12 (Canadian dollars)\nMXN | $1775.26 (Mexican pesos)\nGTQ | Q763.29 (Guatemala quetzales)\nCRC | ₡46426.62 (Costa Rican colones)\nHNL | L2661.00 (Honduran lempiras)\nJMD | J$15730.52 (Jamaican dollars)\nXAU | 0.02 oz (gold ounces)\nXAG | 1.37 oz (silver ounces)"
+            ]
+          }
+        ]
+      },
+      "raw_file": "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/outputs/raw_responses/06_100_usd_to_rub.json",
+      "error": null
+    },
+    {
+      "id": 7,
+      "title": "Временной",
+      "query": "current time in Kazan",
+      "required": true,
+      "status": "ok",
+      "parsed": {
+        "success": true,
+        "error": false,
+        "numpods": 5,
+        "summary": "1:23:05 am MSK | Wednesday, April 8, 2026",
+        "pods": [
+          {
+            "title": "Input interpretation",
+            "plaintext": [
+              "current time in Kazan, Kazan', Russia"
+            ]
+          },
+          {
+            "title": "Result",
+            "plaintext": [
+              "1:23:05 am MSK | Wednesday, April 8, 2026"
+            ]
+          },
+          {
+            "title": "Time offset from CEST",
+            "plaintext": [
+              "+1 hour"
+            ]
+          },
+          {
+            "title": "Clocks",
+            "plaintext": [
+              "Moscow\n\n1:23:05 am MSK\nWednesday, April 8 Copenhagen, Denmark\n\n12:23:05 am CEST\nWednesday, April 8"
+            ]
+          },
+          {
+            "title": "Current Greenwich mean time",
+            "plaintext": [
+              "10:23:05 pm GMT | Tuesday, April 7, 2026"
+            ]
+          }
+        ]
+      },
+      "raw_file": "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/outputs/raw_responses/07_current_time_in_kazan.json",
+      "error": null
+    },
+    {
+      "id": 8,
+      "title": "Астрономический",
+      "query": "distance to Mars",
+      "required": true,
+      "status": "ok",
+      "parsed": {
+        "success": true,
+        "error": false,
+        "numpods": 7,
+        "summary": "2.284 au (astronomical units)",
+        "pods": [
+          {
+            "title": "Input interpretation",
+            "plaintext": [
+              "Mars | distance from Earth"
+            ]
+          },
+          {
+            "title": "Current result",
+            "plaintext": [
+              "2.284 au (astronomical units)"
+            ]
+          },
+          {
+            "title": "Unit conversions",
+            "plaintext": [
+              "3.417×10^8 km (kilometers)",
+              "3.417×10^11 meters",
+              "212.3 million miles"
+            ]
+          },
+          {
+            "title": "Comparisons as distance",
+            "plaintext": [
+              "≈ ( 0.026 ≈ 1/39 ) × smallest distance from the Sun to the heliosheath ( 79 to 100 au )",
+              "≈ 2.3 × mean Earth-Sun distance ( 1.0000010178 au )"
+            ]
+          },
+          {
+            "title": "Corresponding quantities",
+            "plaintext": [
+              "Light travel time t in vacuum from t = x/c:\n | 19 minutes",
+              "Light travel time t in an optical fiber t = 1.48x/c:\n | 28 minutes",
+              "Solar radiation pressure from P = L_☉/(c4πr^2):\n | 0.87 μPa (micropascals)\n | (assuming solar constant ≈ 1.36 kW/m^2)"
+            ]
+          },
+          {
+            "title": "Orbital properties",
+            "plaintext": [
+              "current distance from Earth | 2.284 au\n19 light minutes\naverage distance from Earth | 1.7 au\n14.1 light minutes\ncurrent distance from Sun | 1.382 au\n11.5 light minutes\nlargest distance from Sun | 2.4922873×10^8 km\n1.66599116 au\nsmallest distance from Sun | 2.06644545×10^8 km\n1.38133346 au\norbital period | 1.8808476 a"
+            ]
+          }
+        ]
+      },
+      "raw_file": "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/outputs/raw_responses/08_distance_to_mars.json",
+      "error": null
+    },
+    {
+      "id": 9,
+      "title": "Медицинский",
+      "query": "body mass index 180cm 75kg",
+      "required": true,
+      "status": "ok",
+      "parsed": {
+        "success": true,
+        "error": false,
+        "numpods": 7,
+        "summary": "body mass index | 23.15",
+        "pods": [
+          {
+            "title": "Input information",
+            "plaintext": [
+              "body mass index | \nheight | 180 cm (centimeters)\nbody weight | 75 kg (kilograms)"
+            ]
+          },
+          {
+            "title": "Result",
+            "plaintext": [
+              "body mass index | 23.15"
+            ]
+          },
+          {
+            "title": "Equation",
+            "plaintext": [
+              "BMI = W/H^2 | \nBMI | body mass index\nH | height\nW | body weight\n(based on Quetelet's formula)"
+            ]
+          },
+          {
+            "title": "International weight classification",
+            "plaintext": [
+              "normal range (18.5-25)"
+            ]
+          },
+          {
+            "title": "BMI prime",
+            "plaintext": [
+              "0.926"
+            ]
+          },
+          {
+            "title": "Comparison to USA population",
+            "plaintext": [
+              "| 95% reference range | percentile rank | z-score | distribution\nheight | (150 to 189) cm (centimeters) | 85.2% | 1.1 | \nweight | (49 to 128) kg (kilograms) | 44.5% | -0.27 | \nbody mass index | (19 to 44) | 22.1% | -0.78 |"
+            ]
+          }
+        ]
+      },
+      "raw_file": "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/outputs/raw_responses/09_body_mass_index_180cm_75kg.json",
+      "error": null
+    },
+    {
+      "id": 10,
+      "title": "Лингвистический",
+      "query": "translate hello to Russian",
+      "required": true,
+      "status": "ok",
+      "parsed": {
+        "success": true,
+        "error": false,
+        "numpods": 2,
+        "summary": "(noun) привет | приветствие\nЗдравствуйте",
+        "pods": [
+          {
+            "title": "Input interpretation",
+            "plaintext": [
+              "translate | hello | to Russian"
+            ]
+          },
+          {
+            "title": "Results",
+            "plaintext": [
+              "(noun) привет | приветствие\nЗдравствуйте"
+            ]
+          }
+        ]
+      },
+      "raw_file": "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/outputs/raw_responses/10_translate_hello_to_russian.json",
+      "error": null
+    },
+    {
+      "id": 11,
+      "title": "Дополнительный: Решение уравнения",
+      "query": "solve x^2 - 5x + 6 = 0",
+      "required": false,
+      "status": "ok",
+      "parsed": {
+        "success": true,
+        "error": false,
+        "numpods": 6,
+        "summary": "x = 2",
+        "pods": [
+          {
+            "title": "Input interpretation",
+            "plaintext": [
+              "solve x^2 - 5 x + 6 = 0"
+            ]
+          },
+          {
+            "title": "Results",
+            "plaintext": [
+              "x = 2",
+              "x = 3"
+            ]
+          },
+          {
+            "title": "Sum of roots",
+            "plaintext": [
+              "5"
+            ]
+          },
+          {
+            "title": "Product of roots",
+            "plaintext": [
+              "6"
+            ]
+          }
+        ]
+      },
+      "raw_file": "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/outputs/raw_responses/11_solve_x_2_5x_6_0.json",
+      "error": null
+    },
+    {
+      "id": 12,
+      "title": "Дополнительный: Факторизация",
+      "query": "prime factors of 123456",
+      "required": false,
+      "status": "ok",
+      "parsed": {
+        "success": true,
+        "error": false,
+        "numpods": 3,
+        "summary": "2^6×3×643 (8 prime factors, 3 distinct)",
+        "pods": [
+          {
+            "title": "Input interpretation",
+            "plaintext": [
+              "factor | 123456"
+            ]
+          },
+          {
+            "title": "Result",
+            "plaintext": [
+              "2^6×3×643 (8 prime factors, 3 distinct)"
+            ]
+          },
+          {
+            "title": "Divisors",
+            "plaintext": [
+              "1 | 2 | 3 | 4 | 6 | 8 | 12 | 16 | 24 | 32 | 48 | 64 | 96 | 192 | 643 | 1286 | 1929 | 2572 | 3858 | 5144 | 7716 | 10288 | 15432 | 20576 | 30864 | 41152 | 61728 | 123456 (28 divisors)"
+            ]
+          }
+        ]
+      },
+      "raw_file": "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/outputs/raw_responses/12_prime_factors_of_123456.json",
+      "error": null
+    },
+    {
+      "id": 13,
+      "title": "Дополнительный: Погода",
+      "query": "weather in Kazan",
+      "required": false,
+      "status": "ok",
+      "parsed": {
+        "success": true,
+        "error": false,
+        "numpods": 5,
+        "summary": "weather | Kazan, Russia",
+        "pods": [
+          {
+            "title": "Input interpretation",
+            "plaintext": [
+              "weather | Kazan, Russia"
+            ]
+          },
+          {
+            "title": "Latest recorded weather for Kazan, Russia",
+            "plaintext": [
+              "temperature | 3 °C (wind chill: 0 °C)\nrelative humidity | 87% (dew point: 1 °C)\nwind speed | 3 m/s\n(53 minutes ago)"
+            ]
+          },
+          {
+            "title": "Weather forecast for Kazan, Russia",
+            "plaintext": [
+              "between 3 °C and 7 °C\nclear (all night)",
+              "between 7 °C and 10 °C\nclear (all day) | rain (late afternoon onward)"
+            ]
+          },
+          {
+            "title": "Weather history & forecast",
+            "plaintext": [
+              "| | | \nlow: -1 °C\nSun, Apr 5, 5:30am, ... | average high: | 9 °C\naverage low: | 2 °C | high: 14 °C\nTue, Apr 7, 2:00pm, ...\n | |",
+              "| clear: 53.3% (2.4 days) | overcast: 8.2% (9 hours)",
+              "| rain: 39.5% (1.8 days) | fog: 1.4% (1.5 hours)",
+              "| \nmaximum: 2.3 mm/h\nThu, Apr 9, 4:00am"
+            ]
+          },
+          {
+            "title": "Historical temperatures for April 8",
+            "plaintext": [
+              "low: -10 °C\n1985 | average high: | 6 °C\naverage low: | -2 °C | high: 23 °C\n1975\n(daily ranges, not corrected for changes in local weather station environment)"
+            ]
+          }
+        ]
+      },
+      "raw_file": "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/outputs/raw_responses/13_weather_in_kazan.json",
+      "error": null
+    },
+    {
+      "id": 14,
+      "title": "Дополнительный: Биология",
+      "query": "average human heart rate",
+      "required": false,
+      "status": "ok",
+      "parsed": {
+        "success": true,
+        "error": false,
+        "numpods": 4,
+        "summary": "(60 to 100) bpm (beats per minute)",
+        "pods": [
+          {
+            "title": "Input interpretation",
+            "plaintext": [
+              "human | heart rate"
+            ]
+          },
+          {
+            "title": "Result",
+            "plaintext": [
+              "(60 to 100) bpm (beats per minute)"
+            ]
+          },
+          {
+            "title": "Unit conversion",
+            "plaintext": [
+              "(1 to 1.667) bps (beats per second)"
+            ]
+          },
+          {
+            "title": "Corresponding quantities",
+            "plaintext": [
+              "Beat frequency ν assuming 1 beat per second equals 1 Hz:\n | (1 to 1.7) Hz (hertz)",
+              "Beat period T from T = beats/beat rate:\n | (0.6 to 1) seconds"
+            ]
+          }
+        ]
+      },
+      "raw_file": "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/outputs/raw_responses/14_average_human_heart_rate.json",
+      "error": null
+    },
+    {
+      "id": 15,
+      "title": "Дополнительный: География",
+      "query": "highest mountain in Europe",
+      "required": false,
+      "status": "ok",
+      "parsed": {
+        "success": true,
+        "error": false,
+        "numpods": 13,
+        "summary": "Mount Elbrus\n(5642 meters)",
+        "pods": [
+          {
+            "title": "Input interpretation",
+            "plaintext": [
+              "mountain | with | highest elevation | \nwith | continent | Europe"
+            ]
+          },
+          {
+            "title": "Result",
+            "plaintext": [
+              "Mount Elbrus\n(5642 meters)"
+            ]
+          },
+          {
+            "title": "Properties",
+            "plaintext": [
+              "elevation | 5642 m\nlocation | Zolsky, Kabardino-Balkaria, Russia\nparent peak | Mount Elbrus\nmountain range | Central Caucasus Mountains | Caucasus Mountains\nsummit reached | 1874 (152 years ago)\nclimbing difficulty | basic snow/ice climb"
+            ]
+          },
+          {
+            "title": "Mountain characteristics",
+            "plaintext": [
+              "isolation | 2473 km (kilometers)\nprominence | 4741 meters"
+            ]
+          },
+          {
+            "title": "Local elevation",
+            "plaintext": [
+              "5642 meters"
+            ]
+          },
+          {
+            "title": "Standard atmosphere at peak elevation",
+            "plaintext": [
+              "density | 0.6 × standard atmosphere\npressure | 0.5 × standard atmosphere"
+            ]
+          },
+          {
+            "title": "Nearby cities",
+            "plaintext": [
+              "Kislovodsk | 66 km (kilometers) north-northeast | 126674 people\nNalchik | 97 km (kilometers) east | 271447 people\nTbilisi | 268 km (kilometers) southeast | 1.259 million people\n(straight-line distances to city centers)"
+            ]
+          },
+          {
+            "title": "Nearby mountains",
+            "plaintext": [
+              "Babis Mta | 19 km (kilometers) south-southeast | 4454 meters\nGumatchi | 27 km (kilometers) south | 3810 meters\nUshba | 31 km (kilometers) southeast | 4710 meters\nVia-Tau | 33 km (kilometers) east-southeast | 3820 meters\nChatini | 35 km (kilometers) east-southeast | 4412 meters"
+            ]
+          },
+          {
+            "title": "Wikipedia summary",
+            "plaintext": [
+              "Mount Elbrus is the highest mountain in Russia and Europe. It is a dormant stratovolcano rising 5, 642 m (18, 510 ft) above sea level, and is the highest volcano in Eurasia, as well as the tenth-most prominent peak in the world. It is situated in the southern Russian republic of Kabardino-Balkaria in the western extension of Ciscaucasia, and is the highest peak of the Caucasus Mountains."
+            ]
+          },
+          {
+            "title": "Mountains ranked by elevation",
+            "plaintext": [
+              "1 | Mount Elbrus | 5642 m | \n2 | Dykh-Tau | 5205 m | \n3 | Shkhara | 5201 m | \n4 | Koshtan-Tau | 5144 m | \n5 | Janga Mountain | 5051 m | \n⋮"
+            ]
+          }
+        ]
+      },
+      "raw_file": "/Users/malikmuhametzanov/PycharmProjects/burn/lab1/outputs/raw_responses/15_highest_mountain_in_europe.json",
+      "error": null
+    }
+  ]
+}

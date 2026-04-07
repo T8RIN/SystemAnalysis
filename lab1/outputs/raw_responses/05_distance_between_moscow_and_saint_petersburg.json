@@ -1,0 +1,239 @@
+{
+  "queryresult": {
+    "success": true,
+    "error": false,
+    "numpods": 5,
+    "datatypes": "City,Country",
+    "parsetiming": 0.387,
+    "parsetimedout": false,
+    "id": "DWYxuGqc7i8=6:eJyNTssKwjAQrA/Em9/g0YMfIfV1qFAbP6Bp3WggZiXZIP17N1ZEikIvw8zsTCbzCgs1SJLEjxn2aM5qGNWCIZWmDkYS5NJ5KFO0BJbKj13uAI8BXCOmnF5rT9LW0PaXfforc79KfiTT9l2LnyiCARHJ1uFNjaI9YdhY0tS8DimT9hBVxsMiJg7oa3x0aRG811Il3/HOWFQn7Ds1YyKktpQDgfNVcJef3r/xJ4B/X90=",
+    "kernelId": "44",
+    "processId": 67659,
+    "version": "2.6",
+    "inputstring": "distance between Moscow and Saint Petersburg",
+    "sbsallowed": false,
+    "userinfoused": {
+      "name": "CountryCode"
+    },
+    "sources": [
+      {
+        "url": "https://www6b3.wolframalpha.com/sources/CityDataSourceInformationNotes.html",
+        "text": "City data"
+      },
+      {
+        "url": "https://www6b3.wolframalpha.com/sources/CountryDataSourceInformationNotes.html",
+        "text": "Country data"
+      }
+    ],
+    "parentId": "1b11c5bc-a0fe-48f0-bbef-5129538e2ec1",
+    "requestId": "1b11c5bc-a0fe-48f0-bbef-5129538e2ec1",
+    "pods": [
+      {
+        "title": "Input interpretation",
+        "scanner": "Identity",
+        "id": "Input",
+        "position": 1,
+        "error": false,
+        "numsubpods": 1,
+        "subpods": [
+          {
+            "title": "",
+            "plaintext": "distance | from | Moscow, Tsentralniy, Russia\nto | Saint Petersburg, Admiralteyskiy, Russia"
+          }
+        ],
+        "expressiontypes": {
+          "name": "Grid"
+        }
+      },
+      {
+        "title": "Result",
+        "scanner": "Identity",
+        "id": "Result",
+        "position": 2,
+        "error": false,
+        "numsubpods": 1,
+        "primary": true,
+        "subpods": [
+          {
+            "title": "",
+            "primary": true,
+            "microsources": [
+              "CityData"
+            ],
+            "plaintext": "636.2 km (kilometers)"
+          }
+        ],
+        "expressiontypes": {
+          "name": "Default"
+        }
+      },
+      {
+        "title": "Unit conversions",
+        "scanner": "Traveling",
+        "id": "UnitConversion",
+        "position": 200,
+        "error": false,
+        "numsubpods": 5,
+        "subpods": [
+          {
+            "title": "",
+            "plaintext": "395.3 miles"
+          },
+          {
+            "title": "",
+            "plaintext": "636.2 km (kilometers)"
+          },
+          {
+            "title": "",
+            "plaintext": "636161 meters"
+          },
+          {
+            "title": "",
+            "plaintext": "6.362×10^7 cm (centimeters)"
+          },
+          {
+            "title": "",
+            "plaintext": "343.5 nmi (nautical miles)"
+          }
+        ],
+        "expressiontypes": {
+          "name": "Default"
+        }
+      },
+      {
+        "title": "Direct travel times",
+        "scanner": "Traveling",
+        "id": "TravelTimes",
+        "position": 300,
+        "error": false,
+        "numsubpods": 1,
+        "subpods": [
+          {
+            "title": "",
+            "plaintext": "aircraft (885 km/h) | 43 minutes\nsound | 31 minutes\nlight in fiber | 3 ms (milliseconds)\nlight in vacuum | 2 ms (milliseconds)\n(assuming constant-speed great-circle path)",
+            "infos": {
+              "units": {
+                "short": "km/h",
+                "long": "kilometers per hour"
+              }
+            }
+          }
+        ],
+        "expressiontypes": {
+          "name": "Grid"
+        },
+        "states": [
+          {
+            "name": "More",
+            "input": "TravelTimes__More"
+          }
+        ]
+      },
+      {
+        "title": "Map",
+        "scanner": "Traveling",
+        "id": "Map",
+        "position": 400,
+        "error": false,
+        "numsubpods": 1,
+        "subpods": [
+          {
+            "title": "",
+            "microsources": [
+              "CityData",
+              "CountryData"
+            ],
+            "datasources": [
+              "CIAFactbook"
+            ],
+            "plaintext": ""
+          }
+        ],
+        "expressiontypes": {
+          "name": "Default"
+        }
+      }
+    ],
+    "assumptions": [
+      {
+        "type": "SubCategory",
+        "word": "Moscow",
+        "template": "Assuming ${desc1}. Use ${desc2} instead",
+        "count": 9,
+        "values": [
+          {
+            "name": "{Moscow, Moscow, Russia}",
+            "desc": "Moscow (Russia)",
+            "input": "%2ADPClash.CityE.Moscow-_%2A%2AMoscow.Moscow.Russia--"
+          },
+          {
+            "name": "{Moscow, Idaho, UnitedStates}",
+            "desc": "Moscow (Idaho, USA)",
+            "input": "%2ADPClash.CityE.Moscow-_%2A%2AMoscow.Idaho.UnitedStates--"
+          },
+          {
+            "name": "{Moscow, Pennsylvania, UnitedStates}",
+            "desc": "Moscow (Pennsylvania, USA)",
+            "input": "%2ADPClash.CityE.Moscow-_%2A%2AMoscow.Pennsylvania.UnitedStates--"
+          },
+          {
+            "name": "{Moscow, Maine, UnitedStates}",
+            "desc": "Moscow (Maine, USA)",
+            "input": "%2ADPClash.CityE.Moscow-_%2A%2AMoscow.Maine.UnitedStates--"
+          },
+          {
+            "name": "{Moscow, Wisconsin, UnitedStates}",
+            "desc": "Moscow (Wisconsin, USA)",
+            "input": "%2ADPClash.CityE.Moscow-_%2A%2AMoscow.Wisconsin.UnitedStates--"
+          },
+          {
+            "name": "{Moscow, Tennessee, UnitedStates}",
+            "desc": "Moscow (Tennessee, USA)",
+            "input": "%2ADPClash.CityE.Moscow-_%2A%2AMoscow.Tennessee.UnitedStates--"
+          },
+          {
+            "name": "{Moscow, Kansas, UnitedStates}",
+            "desc": "Moscow (Kansas, USA)",
+            "input": "%2ADPClash.CityE.Moscow-_%2A%2AMoscow.Kansas.UnitedStates--"
+          },
+          {
+            "name": "{Moscow, Maryland, UnitedStates}",
+            "desc": "Moscow (Maryland, USA)",
+            "input": "%2ADPClash.CityE.Moscow-_%2A%2AMoscow.Maryland.UnitedStates--"
+          },
+          {
+            "name": "{Moscow, Ohio, UnitedStates}",
+            "desc": "Moscow (Ohio, USA)",
+            "input": "%2ADPClash.CityE.Moscow-_%2A%2AMoscow.Ohio.UnitedStates--"
+          }
+        ]
+      },
+      {
+        "type": "SubCategory",
+        "word": "Saint Petersburg",
+        "template": "Assuming ${desc1}. Use ${desc2} instead",
+        "count": 3,
+        "values": [
+          {
+            "name": "{SaintPetersburg, SaintPetersburg, Russia}",
+            "desc": "Saint Petersburg (Russia)",
+            "input": "%2ADPClash.CityE.Saint%20Petersburg-_%2A%2ASaintPetersburg.SaintPetersburg.Russia--"
+          },
+          {
+            "name": "{SaintPetersburg, Florida, UnitedStates}",
+            "desc": "Saint Petersburg (Florida, USA)",
+            "input": "%2ADPClash.CityE.Saint%20Petersburg-_%2A%2ASaintPetersburg.Florida.UnitedStates--"
+          },
+          {
+            "name": "{SaintPetersburg, Pennsylvania, UnitedStates}",
+            "desc": "Saint Petersburg (Pennsylvania, USA)",
+            "input": "%2ADPClash.CityE.Saint%20Petersburg-_%2A%2ASaintPetersburg.Pennsylvania.UnitedStates--"
+          }
+        ]
+      }
+    ],
+    "timing": 1.43,
+    "timedout": "",
+    "timedoutpods": ""
+  }
+}

@@ -1,0 +1,135 @@
+{
+  "queryresult": {
+    "success": true,
+    "error": false,
+    "numpods": 6,
+    "datatypes": "Solve",
+    "parsetiming": 0.3,
+    "parsetimedout": false,
+    "id": "TxG0RDJbdi0=6:eJxFTVsOwjAMK4MhcQxOwCEmJD6rdQdYgVSKFFZYWh6nh4RRlg8rdhx7e4xtWBhjeCVwiHQOlbKdQOPplMknsH5k6Js4JBhS/5fnzUW6w/RYC+xv2VNYllRLmeejjQ8YWSufqOLk00uHF2B8y6DSn2ctiEaNVQlsM4HbyPLt7V5XcHVhHwC5M1Y=",
+    "kernelId": "35",
+    "processId": 62396,
+    "version": "2.6",
+    "inputstring": "solve x^2 - 5x + 6 = 0",
+    "sbsallowed": false,
+    "parentId": "dd7ec7bb-dc5d-48ce-8674-d14f697b64e3",
+    "requestId": "dd7ec7bb-dc5d-48ce-8674-d14f697b64e3",
+    "pods": [
+      {
+        "title": "Input interpretation",
+        "scanner": "Identity",
+        "id": "Input",
+        "position": 1,
+        "error": false,
+        "numsubpods": 1,
+        "subpods": [
+          {
+            "title": "",
+            "plaintext": "solve x^2 - 5 x + 6 = 0"
+          }
+        ],
+        "expressiontypes": {
+          "name": "Default"
+        }
+      },
+      {
+        "title": "Results",
+        "scanner": "Solve",
+        "id": "Result",
+        "position": 10,
+        "error": false,
+        "numsubpods": 2,
+        "primary": true,
+        "subpods": [
+          {
+            "title": "",
+            "plaintext": "x = 2"
+          },
+          {
+            "title": "",
+            "plaintext": "x = 3"
+          }
+        ],
+        "expressiontypes": [
+          {
+            "name": "Default"
+          },
+          {
+            "name": "Default"
+          }
+        ]
+      },
+      {
+        "title": "Root plot",
+        "scanner": "Solve",
+        "id": "RootPlot",
+        "position": 200,
+        "error": false,
+        "numsubpods": 1,
+        "subpods": [
+          {
+            "title": "",
+            "plaintext": ""
+          }
+        ],
+        "expressiontypes": {
+          "name": "Default"
+        }
+      },
+      {
+        "title": "Number line",
+        "scanner": "Solve",
+        "id": "NumberLine",
+        "position": 611,
+        "error": false,
+        "numsubpods": 1,
+        "subpods": [
+          {
+            "title": "",
+            "plaintext": ""
+          }
+        ],
+        "expressiontypes": {
+          "name": "Default"
+        }
+      },
+      {
+        "title": "Sum of roots",
+        "scanner": "Solve",
+        "id": "SumOfRoots",
+        "position": 3000,
+        "error": false,
+        "numsubpods": 1,
+        "subpods": [
+          {
+            "title": "",
+            "plaintext": "5"
+          }
+        ],
+        "expressiontypes": {
+          "name": "Default"
+        }
+      },
+      {
+        "title": "Product of roots",
+        "scanner": "Solve",
+        "id": "ProductOfRoots",
+        "position": 3001,
+        "error": false,
+        "numsubpods": 1,
+        "subpods": [
+          {
+            "title": "",
+            "plaintext": "6"
+          }
+        ],
+        "expressiontypes": {
+          "name": "Default"
+        }
+      }
+    ],
+    "timing": 0.732,
+    "timedout": "",
+    "timedoutpods": ""
+  }
+}

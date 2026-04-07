@@ -1,0 +1,138 @@
+{
+  "queryresult": {
+    "success": true,
+    "error": false,
+    "numpods": 5,
+    "datatypes": "CalendarEvent",
+    "parsetiming": 0.399,
+    "parsetimedout": false,
+    "id": "ccpW9KaNrXI=6:eJyNj8sKwjAQReMT/AyXbsRfKLUgKChNV646bROMxEQ6E0W/3hkEcdnN5c7jXGaWTSztSCmFU5Zd9J0Vg2uWHHybPJA5QY+mzmMgE6j+tcWZ0EFfPLiPC0ayRPEG5Fo7lpTNkJTM3y+wZXdsrqYlPWEoxCeuhsDVWW42veNlZQXFOUsRyNFLyys5m+9AqoND0jM2e3hD0HJzBcThxJWQZUJ0YNU/8AH9TFUa",
+    "kernelId": "28",
+    "processId": 37570,
+    "version": "2.6",
+    "inputstring": "current time in Kazan",
+    "sbsallowed": false,
+    "userinfoused": [
+      {
+        "name": "Country"
+      },
+      {
+        "name": "TimeZone"
+      }
+    ],
+    "parentId": "0a023536-5e97-460c-868d-4c0d6a3a5baa",
+    "requestId": "0a023536-5e97-460c-868d-4c0d6a3a5baa",
+    "pods": [
+      {
+        "title": "Input interpretation",
+        "scanner": "Identity",
+        "id": "Input",
+        "position": 1,
+        "error": false,
+        "numsubpods": 1,
+        "subpods": [
+          {
+            "title": "",
+            "plaintext": "current time in Kazan, Kazan', Russia"
+          }
+        ],
+        "expressiontypes": {
+          "name": "Default"
+        }
+      },
+      {
+        "title": "Result",
+        "scanner": "Identity",
+        "id": "Result",
+        "position": 2,
+        "error": false,
+        "numsubpods": 1,
+        "primary": true,
+        "subpods": [
+          {
+            "title": "",
+            "primary": true,
+            "plaintext": "1:23:05 am MSK | Wednesday, April 8, 2026"
+          }
+        ],
+        "expressiontypes": {
+          "name": "Default"
+        }
+      },
+      {
+        "title": "Time offset from CEST",
+        "scanner": "Date",
+        "id": "TimeOffsets",
+        "position": 1201,
+        "error": false,
+        "numsubpods": 1,
+        "subpods": [
+          {
+            "title": "",
+            "plaintext": "+1 hour"
+          }
+        ],
+        "expressiontypes": {
+          "name": "Default"
+        }
+      },
+      {
+        "title": "Clocks",
+        "scanner": "Date",
+        "id": "ClockImages",
+        "position": 1202,
+        "error": false,
+        "numsubpods": 1,
+        "subpods": [
+          {
+            "title": "",
+            "plaintext": "Moscow\n\n1:23:05 am MSK\nWednesday, April 8 Copenhagen, Denmark\n\n12:23:05 am CEST\nWednesday, April 8"
+          }
+        ],
+        "expressiontypes": {
+          "name": "Default"
+        }
+      },
+      {
+        "title": "Current Greenwich mean time",
+        "scanner": "Date",
+        "id": "CurrentGMTTime",
+        "position": 3000,
+        "error": false,
+        "numsubpods": 1,
+        "subpods": [
+          {
+            "title": "",
+            "plaintext": "10:23:05 pm GMT | Tuesday, April 7, 2026"
+          }
+        ],
+        "expressiontypes": {
+          "name": "Grid"
+        }
+      }
+    ],
+    "assumptions": [
+      {
+        "type": "SubCategory",
+        "word": "Kazan",
+        "template": "Assuming ${desc1}. Use ${desc2} instead",
+        "count": 2,
+        "values": [
+          {
+            "name": "{Kazan, Tatarstan, Russia}",
+            "desc": "Kazan (Russia)",
+            "input": "%2ADPClash.CityE.Kazan-_%2A%2AKazan.Tatarstan.Russia--"
+          },
+          {
+            "name": "{Kazan, Ankara, Turkey}",
+            "desc": "Kazan (Turkey)",
+            "input": "%2ADPClash.CityE.Kazan-_%2A%2AKazan.Ankara.Turkey--"
+          }
+        ]
+      }
+    ],
+    "timing": 0.861,
+    "timedout": "",
+    "timedoutpods": ""
+  }
+}

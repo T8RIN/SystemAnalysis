@@ -1,0 +1,100 @@
+{
+  "queryresult": {
+    "success": true,
+    "error": false,
+    "numpods": 3,
+    "datatypes": "Formula",
+    "parsetiming": 1.064,
+    "parsetimedout": false,
+    "id": "eK/zLr2YjeA=6:eJydUttKA0EMrbaKiMVv8MEXH6R+gpSKUJXabX3udDdbAzOJzqXSv3cyu72wiCx9GZKTnMPJJDdLnpYnnU7H9eLzzLooTyV7iM9Q6Txo5WGirIPFkMkD+cUO3kdPbE0Msn5kjZHAYz4isKtN2dtKv6DzlbRk06Ahu4hBxnot9L0HacwkGzfaz2PwoXQAV3b/URWqqbD7NkM86q9P9R4UefQbPIuUysttG/Kc0Lu7w86EJHzIxjBlG7Nk7RZj1Lyyyrg/7K6Ptnt5hN1BG7uv4MG6CdgMcqaiYfo6BsRkIUrgOu4A81R8Y4JG65XAykBR30iqzGxo9vV3xxAo98hUjTVoM1YtPfoOKjGTsmxSEF0fU3cLztBAvQW5wGniKI3ShgIfnpAQJvwT/yEtKtV/AR3c5YI=",
+    "kernelId": "31",
+    "processId": 43733,
+    "version": "2.6",
+    "inputstring": "kinetic energy of 5kg object at 10m/s",
+    "sbsallowed": false,
+    "parentId": "5077a4f6-420f-49fa-aed8-284af9cc9ef3",
+    "requestId": "5077a4f6-420f-49fa-aed8-284af9cc9ef3",
+    "pods": [
+      {
+        "title": "Input information",
+        "scanner": "Formula",
+        "id": "Input",
+        "position": 1,
+        "error": false,
+        "numsubpods": 1,
+        "subpods": [
+          {
+            "title": "",
+            "plaintext": "kinetic energy | \nmass | 5 kg (kilograms)\nvelocity | 10 m/s (meters per second)"
+          }
+        ],
+        "expressiontypes": {
+          "name": "Grid"
+        }
+      },
+      {
+        "title": "Result",
+        "scanner": "Formula",
+        "id": "Result",
+        "position": 2320,
+        "error": false,
+        "numsubpods": 1,
+        "primary": true,
+        "subpods": [
+          {
+            "title": "",
+            "plaintext": "kinetic energy | 250 J (joules)\n= 0.06944 W h (watt hours)\n= 1.56×10^12 GeV (gigaelectronvolts)"
+          }
+        ],
+        "expressiontypes": {
+          "name": "Grid"
+        },
+        "states": [
+          {
+            "name": "More units",
+            "input": "Result__More units"
+          }
+        ]
+      },
+      {
+        "title": "Equation",
+        "scanner": "Formula",
+        "id": "Equation",
+        "position": 2321,
+        "error": false,
+        "numsubpods": 1,
+        "subpods": [
+          {
+            "title": "",
+            "plaintext": "K = (m v^2)/2 | \nK | kinetic energy\nm | mass\nv | velocity\n(the energy of an object due to its motion)"
+          }
+        ],
+        "expressiontypes": {
+          "name": "Grid"
+        }
+      }
+    ],
+    "assumptions": [
+      {
+        "type": "FormulaSelect",
+        "template": "Assuming ${desc1}. Use ${desc2} instead",
+        "count": 2,
+        "values": [
+          {
+            "name": "KineticEnergy",
+            "desc": "kinetic energy",
+            "input": "FSelect_%2A%2AKineticEnergy--"
+          },
+          {
+            "name": "TotalMechanicalEnergy",
+            "desc": "total mechanical energy",
+            "input": "FSelect_%2A%2ATotalMechanicalEnergy--"
+          }
+        ]
+      }
+    ],
+    "timing": 1.362,
+    "timedout": "",
+    "timedoutpods": ""
+  }
+}

@@ -1,0 +1,172 @@
+{
+  "queryresult": {
+    "success": true,
+    "error": false,
+    "numpods": 5,
+    "datatypes": "Financial",
+    "parsetiming": 0.496,
+    "parsetimedout": false,
+    "id": "BSBnC7ulogM=6:eJydkMEKwjAMhqf4Ih68CO4dpB48iXbs3s51WMgSWVJhb2/bgXisXn5Iky/56LYjPayqquJNjDNBP6xTdYihLNwDWHEtemGTUtE4Ejbz2BGwUYQvN0luL1j9jV3txC4NiUMxn2dzhOfD3oJF8TL7PiKLwa4Ezsf2JXZtcyKAuOZftfwlF0L3q15doqcDs7eoQweO34fEhJ4=",
+    "kernelId": "41",
+    "processId": 75068,
+    "version": "2.6",
+    "inputstring": "100 USD to RUB",
+    "sbsallowed": false,
+    "sources": [
+      {
+        "url": "https://www6b3.wolframalpha.com/sources/FinancialDataSourceInformationNotes.html",
+        "text": "Financial data"
+      }
+    ],
+    "parentId": "37badf49-b764-4efa-8d18-d4f57f4e3c9c",
+    "requestId": "37badf49-b764-4efa-8d18-d4f57f4e3c9c",
+    "pods": [
+      {
+        "title": "Input interpretation",
+        "scanner": "Identity",
+        "id": "Input",
+        "position": 1,
+        "error": false,
+        "numsubpods": 1,
+        "subpods": [
+          {
+            "title": "",
+            "plaintext": "convert $100 (US dollars) to Russian rubles"
+          }
+        ],
+        "expressiontypes": {
+          "name": "Default"
+        }
+      },
+      {
+        "title": "Result",
+        "scanner": "Money",
+        "id": "Result",
+        "position": 100,
+        "error": false,
+        "numsubpods": 1,
+        "primary": true,
+        "subpods": [
+          {
+            "title": "",
+            "plaintext": "8018.73 ₽ (Russian rubles) (^6/_4-2026)"
+          }
+        ],
+        "expressiontypes": {
+          "name": "Default"
+        },
+        "states": [
+          {
+            "name": "More accuracy",
+            "input": "Result__More accuracy"
+          }
+        ]
+      },
+      {
+        "title": "Local currency conversion for $100 (US dollars)",
+        "scanner": "Money",
+        "id": "LocalCurrencyConversion",
+        "position": 100,
+        "error": false,
+        "numsubpods": 1,
+        "subpods": [
+          {
+            "title": "",
+            "plaintext": "646.58 kr (Danish kroner) (^7/_4-2026)"
+          }
+        ],
+        "expressiontypes": {
+          "name": "Default"
+        }
+      },
+      {
+        "title": "Exchange history for $100 (US dollars)",
+        "scanner": "Money",
+        "id": "History",
+        "position": 200,
+        "error": false,
+        "numsubpods": 1,
+        "subpods": [
+          {
+            "title": "",
+            "microsources": [
+              "FinancialData"
+            ],
+            "datasources": [
+              "FinnhubStockAPI",
+              "NasdaqDataLink"
+            ],
+            "plaintext": "\n1-year minimum | 7492.88 ₽ (^25/_1-2026 | 2 months ago)\n1-year maximum | 8615.31 ₽ (^9/_4-2025 | 12 months ago)\n1-year average | 7987.10 ₽ (annualized volatility: 13%)",
+            "infos": {
+              "units": {
+                "short": "1.00 ₽",
+                "long": "Russian rubles"
+              }
+            }
+          }
+        ],
+        "expressiontypes": {
+          "name": "Grid"
+        },
+        "states": [
+          {
+            "count": 4,
+            "value": "Last year",
+            "delimiters": "",
+            "states": [
+              {
+                "name": "Last month",
+                "input": "History__Last month"
+              },
+              {
+                "name": "Last year",
+                "input": "History__Last year"
+              },
+              {
+                "name": "Last 5 years",
+                "input": "History__Last 5 years"
+              },
+              {
+                "name": "Last 10 years",
+                "input": "History__Last 10 years"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Additional currency conversions for $100 (US dollars)",
+        "scanner": "Money",
+        "id": "CurrencyConversions",
+        "position": 500,
+        "error": false,
+        "numsubpods": 1,
+        "subpods": [
+          {
+            "title": "",
+            "microsources": [
+              "FinancialData"
+            ],
+            "datasources": [
+              "FinnhubStockAPI",
+              "NasdaqDataLink"
+            ],
+            "plaintext": "EUR | €86.53 (euros)\nCNY | ￥685.74 (Chinese yuan)\nJPY | ¥15984 (Japanese yen)\nGBP | £75.50 (British pounds)\nCAD | C$139.12 (Canadian dollars)\nMXN | $1775.26 (Mexican pesos)\nGTQ | Q763.29 (Guatemala quetzales)\nCRC | ₡46426.62 (Costa Rican colones)\nHNL | L2661.00 (Honduran lempiras)\nJMD | J$15730.52 (Jamaican dollars)\nXAU | 0.02 oz (gold ounces)\nXAG | 1.37 oz (silver ounces)"
+          }
+        ],
+        "expressiontypes": {
+          "name": "Default"
+        },
+        "states": [
+          {
+            "name": "World currencies",
+            "input": "CurrencyConversions__World currencies"
+          }
+        ]
+      }
+    ],
+    "timing": 1.496,
+    "timedout": "",
+    "timedoutpods": ""
+  }
+}

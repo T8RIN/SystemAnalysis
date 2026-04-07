@@ -1,0 +1,86 @@
+{
+  "queryresult": {
+    "success": true,
+    "error": false,
+    "numpods": 3,
+    "datatypes": "",
+    "parsetiming": 0.315,
+    "parsetimedout": false,
+    "id": "OdZWvpXFILg=6:eJxTTMoPSmNkYGAoZgESHvk5KWlMIB4nkPDMK0lNL0osSYUIsQKJkMzc1GIENyC/PLWoGKS9IhMkiCYDMZgZSARn5kGVgXgQJgDLzRaP",
+    "kernelId": "23",
+    "processId": 33957,
+    "version": "2.6",
+    "inputstring": "integrate x^2 sin^3 x dx",
+    "sbsallowed": false,
+    "parentId": "ccf15a2e-ddfb-4ffd-86c6-4999939af0c3",
+    "requestId": "ccf15a2e-ddfb-4ffd-86c6-4999939af0c3",
+    "pods": [
+      {
+        "title": "Indefinite integral",
+        "scanner": "Integral",
+        "id": "IndefiniteIntegral",
+        "position": 10,
+        "error": false,
+        "numsubpods": 1,
+        "primary": true,
+        "subpods": [
+          {
+            "title": "",
+            "plaintext": "integral x^2 sin^3(x) dx = 1/108 (-81 (x^2 - 2) cos(x) + (9 x^2 - 2) cos(3 x) - 6 x (sin(3 x) - 27 sin(x))) + constant"
+          }
+        ],
+        "expressiontypes": {
+          "name": "Default"
+        }
+      },
+      {
+        "title": "Plots",
+        "scanner": "Integral",
+        "id": "Plot",
+        "position": 100.5,
+        "error": false,
+        "numsubpods": 2,
+        "subpods": [
+          {
+            "title": "",
+            "plaintext": ""
+          },
+          {
+            "title": "",
+            "plaintext": ""
+          }
+        ],
+        "expressiontypes": {
+          "name": "Default"
+        }
+      },
+      {
+        "title": "Series expansion of the integral at x = 0",
+        "scanner": "Series",
+        "id": "SeriesExpansionOfTheIntegralAtx=0",
+        "position": 1610,
+        "error": false,
+        "numsubpods": 1,
+        "subpods": [
+          {
+            "title": "",
+            "plaintext": "40/27 + x^6/6 - x^8/16 + O(x^9)\n(Taylor series)",
+            "infos": {
+              "links": {
+                "url": "http://mathworld.wolfram.com/Big-ONotation.html",
+                "text": "Big‐O notation"
+              }
+            }
+          }
+        ],
+        "expressiontypes": {
+          "name": "Default"
+        }
+      }
+    ],
+    "timing": 3.499,
+    "timedout": "Integral",
+    "timedoutpods": "",
+    "recalculate": "https://gateway.wolframalpha.com/calculate/recalc?id=NWM6OWM2MTMyOGEtODg3ZC00ZGEzLWFkNGUtNGE2YTA1NzUwYWVm"
+  }
+}

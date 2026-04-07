@@ -1,0 +1,298 @@
+{
+  "queryresult": {
+    "success": true,
+    "error": false,
+    "numpods": 5,
+    "datatypes": "Weather,WeatherForecast,City",
+    "parsetiming": 0.229,
+    "parsetimedout": false,
+    "id": "dQlaq9Uicko=6:eJxljU0KAjEMhevfgBvv4AW8gxRR0MUwFdw2asoUSiLTzEJPb+qgKG4e70te8pZnbsLIGJOnKjtO1zApVKlsSKLc3ULtCUFa7JyARKbhYKViIV36BII1dBm9ZRIk8Z+xX6dbC1vkmiNJGL+Lmj6hKx1W49j9dZaMVTMsCh1iFjdTs4cHkJurO4JoqyhVr5c5Rwjm++CXnni4O1o=",
+    "kernelId": "35",
+    "processId": 64348,
+    "version": "2.6",
+    "inputstring": "weather in Kazan",
+    "sbsallowed": false,
+    "userinfoused": {
+      "name": "Country"
+    },
+    "parentId": "200f35a2-0ac6-48da-bdbb-7bf040f8b6d0",
+    "requestId": "200f35a2-0ac6-48da-bdbb-7bf040f8b6d0",
+    "pods": [
+      {
+        "title": "Input interpretation",
+        "scanner": "Identity",
+        "id": "Input",
+        "position": 1,
+        "error": false,
+        "numsubpods": 1,
+        "subpods": [
+          {
+            "title": "",
+            "plaintext": "weather | Kazan, Russia"
+          }
+        ],
+        "expressiontypes": {
+          "name": "Default"
+        }
+      },
+      {
+        "title": "Latest recorded weather for Kazan, Russia",
+        "scanner": "Data",
+        "id": "InstantaneousWeather:WeatherData",
+        "position": 100,
+        "error": false,
+        "numsubpods": 1,
+        "primary": true,
+        "subpods": [
+          {
+            "title": "",
+            "microsources": [
+              "WeatherData"
+            ],
+            "plaintext": "temperature | 3 °C (wind chill: 0 °C)\nrelative humidity | 87% (dew point: 1 °C)\nwind speed | 3 m/s\n(53 minutes ago)",
+            "infos": {
+              "units": {
+                "short": "m/s",
+                "long": "meters per second"
+              }
+            }
+          }
+        ],
+        "expressiontypes": {
+          "name": "Grid"
+        },
+        "states": [
+          {
+            "name": "Show non-metric",
+            "input": "InstantaneousWeather:WeatherData__Show non-metric"
+          },
+          {
+            "name": "More",
+            "input": "InstantaneousWeather:WeatherData__More"
+          }
+        ]
+      },
+      {
+        "title": "Weather forecast for Kazan, Russia",
+        "scanner": "Data",
+        "id": "WeatherForecast:WeatherData",
+        "position": 101,
+        "error": false,
+        "numsubpods": 2,
+        "primary": true,
+        "subpods": [
+          {
+            "title": "Tonight",
+            "microsources": [
+              "WeatherForecastData"
+            ],
+            "plaintext": "between 3 °C and 7 °C\nclear (all night)"
+          },
+          {
+            "title": "Tomorrow",
+            "microsources": [
+              "WeatherForecastData"
+            ],
+            "plaintext": "between 7 °C and 10 °C\nclear (all day) | rain (late afternoon onward)"
+          }
+        ],
+        "expressiontypes": [
+          {
+            "name": "Grid"
+          },
+          {
+            "name": "Grid"
+          }
+        ],
+        "states": [
+          {
+            "name": "Show non-metric",
+            "input": "WeatherForecast:WeatherData__Show non-metric"
+          },
+          {
+            "name": "More days",
+            "input": "WeatherForecast:WeatherData__More days"
+          },
+          {
+            "name": "More details",
+            "input": "WeatherForecast:WeatherData__More details"
+          }
+        ]
+      },
+      {
+        "title": "Weather history & forecast",
+        "scanner": "Data",
+        "id": "WeatherCharts:WeatherData",
+        "position": 200,
+        "error": false,
+        "numsubpods": 4,
+        "subpods": [
+          {
+            "title": "Temperature",
+            "microsources": [
+              "WeatherForecastData"
+            ],
+            "plaintext": "\n | | | \nlow: -1 °C\nSun, Apr 5, 5:30am, ... | average high: | 9 °C\naverage low: | 2 °C | high: 14 °C\nTue, Apr 7, 2:00pm, ...\n | |  "
+          },
+          {
+            "title": "Cloud cover",
+            "microsources": [
+              "WeatherForecastData"
+            ],
+            "plaintext": "\n | clear: 53.3% (2.4 days) | overcast: 8.2% (9 hours) "
+          },
+          {
+            "title": "Conditions",
+            "microsources": [
+              "WeatherForecastData"
+            ],
+            "plaintext": "\n | rain: 39.5% (1.8 days) | fog: 1.4% (1.5 hours) "
+          },
+          {
+            "title": "Precipitation rate",
+            "microsources": [
+              "WeatherForecastData"
+            ],
+            "plaintext": "\n | \nmaximum: 2.3 mm/h\nThu, Apr 9, 4:00am\n"
+          }
+        ],
+        "expressiontypes": [
+          {
+            "name": "Default"
+          },
+          {
+            "name": "Grid"
+          },
+          {
+            "name": "Grid"
+          },
+          {
+            "name": "Default"
+          }
+        ],
+        "states": [
+          {
+            "count": 9,
+            "value": "Current week",
+            "delimiters": "",
+            "states": [
+              {
+                "name": "Current week",
+                "input": "WeatherCharts:WeatherData__Current week"
+              },
+              {
+                "name": "Current day",
+                "input": "WeatherCharts:WeatherData__Current day"
+              },
+              {
+                "name": "Next week",
+                "input": "WeatherCharts:WeatherData__Next week"
+              },
+              {
+                "name": "Past week",
+                "input": "WeatherCharts:WeatherData__Past week"
+              },
+              {
+                "name": "Past month",
+                "input": "WeatherCharts:WeatherData__Past month"
+              },
+              {
+                "name": "Past year",
+                "input": "WeatherCharts:WeatherData__Past year"
+              },
+              {
+                "name": "Past 5 years",
+                "input": "WeatherCharts:WeatherData__Past 5 years"
+              },
+              {
+                "name": "Past 10 years",
+                "input": "WeatherCharts:WeatherData__Past 10 years"
+              },
+              {
+                "name": "All",
+                "input": "WeatherCharts:WeatherData__All"
+              }
+            ]
+          },
+          {
+            "name": "Show non-metric",
+            "input": "WeatherCharts:WeatherData__Show non-metric"
+          },
+          {
+            "name": "More",
+            "input": "WeatherCharts:WeatherData__More"
+          }
+        ]
+      },
+      {
+        "title": "Historical temperatures for April 8",
+        "scanner": "Data",
+        "id": "HistoricalTemperature:WeatherData",
+        "position": 400,
+        "error": false,
+        "numsubpods": 1,
+        "subpods": [
+          {
+            "title": "",
+            "microsources": [
+              "CityData",
+              "WeatherData"
+            ],
+            "plaintext": "\nlow: -10 °C\n1985 | average high: | 6 °C\naverage low: | -2 °C | high: 23 °C\n1975\n(daily ranges, not corrected for changes in local weather station environment)"
+          }
+        ],
+        "expressiontypes": {
+          "name": "Default"
+        },
+        "states": [
+          {
+            "name": "Show table",
+            "input": "HistoricalTemperature:WeatherData__Show table"
+          },
+          {
+            "name": "Show non-metric",
+            "input": "HistoricalTemperature:WeatherData__Show non-metric"
+          }
+        ]
+      }
+    ],
+    "assumptions": [
+      {
+        "type": "SubCategory",
+        "word": "Kazan",
+        "template": "Assuming ${desc1}. Use ${desc2} instead",
+        "count": 2,
+        "values": [
+          {
+            "name": "{Kazan, Tatarstan, Russia}",
+            "desc": "Kazan (Russia)",
+            "input": "%2ADPClash.CityE.Kazan-_%2A%2AKazan.Tatarstan.Russia--"
+          },
+          {
+            "name": "{Kazan, Ankara, Turkey}",
+            "desc": "Kazan (Turkey)",
+            "input": "%2ADPClash.CityE.Kazan-_%2A%2AKazan.Ankara.Turkey--"
+          }
+        ]
+      }
+    ],
+    "timing": 3.915,
+    "timedout": "Data",
+    "timedoutpods": "",
+    "sources": [
+      {
+        "url": "https://www6b3.wolframalpha.com/sources/WeatherDataSourceInformationNotes.html",
+        "text": "Weather data"
+      },
+      {
+        "url": "https://www6b3.wolframalpha.com/sources/WeatherForecastDataSourceInformationNotes.html",
+        "text": "Weather forecast data"
+      },
+      {
+        "url": "https://www6b3.wolframalpha.com/sources/CityDataSourceInformationNotes.html",
+        "text": "City data"
+      }
+    ],
+    "recalculate": "https://gateway.wolframalpha.com/calculate/recalc?id=NjoyYjExOTU3Ni0xMmZjLTQxZDgtYWYyZS04NTdiMTZmZmM3OGI="
+  }
+}

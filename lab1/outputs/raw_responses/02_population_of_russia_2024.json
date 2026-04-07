@@ -1,0 +1,250 @@
+{
+  "queryresult": {
+    "success": true,
+    "error": false,
+    "numpods": 8,
+    "datatypes": "Country,City",
+    "parsetiming": 0.22,
+    "parsetimedout": false,
+    "id": "QQZVqdRveK0=6:eJyNT0kOwjAMDAWxXXgDH0B8ARUkDkhU7QealkQEhbhKnEN/zDOwKW3FjcvIM/KMx9sKcj0RQoQZwRnsTSfMdgSptHW0ElUmfVBlCg6Vw3KQx+koUeop++YEJ4cG22LBERAd+rZgOY8hGKlFf+xiAnamJUHmoVGebJvRNmhrXoCGbxlwY99PRNKzPFpV8EB1VLe0/+eNg23ukj3X6qHqb6c+3rzoj7AidogITypQ/7I3HbZZBg==",
+    "kernelId": "17",
+    "processId": 29903,
+    "version": "2.6",
+    "inputstring": "population of Russia 2024",
+    "sbsallowed": false,
+    "userinfoused": {
+      "name": "TimeZone"
+    },
+    "sources": [
+      {
+        "url": "https://www6b3.wolframalpha.com/sources/CountryDataSourceInformationNotes.html",
+        "text": "Country data"
+      },
+      {
+        "url": "https://www6b3.wolframalpha.com/sources/CityDataSourceInformationNotes.html",
+        "text": "City data"
+      }
+    ],
+    "parentId": "979c0dfb-59e9-45d6-99f7-e2d8a4ac5265",
+    "requestId": "979c0dfb-59e9-45d6-99f7-e2d8a4ac5265",
+    "pods": [
+      {
+        "title": "Input interpretation",
+        "scanner": "Identity",
+        "id": "Input",
+        "position": 1,
+        "error": false,
+        "numsubpods": 1,
+        "subpods": [
+          {
+            "title": "",
+            "plaintext": "Russia | population | 2024"
+          }
+        ],
+        "expressiontypes": {
+          "name": "Grid"
+        }
+      },
+      {
+        "title": "Result",
+        "scanner": "Data",
+        "id": "Result",
+        "position": 10,
+        "error": false,
+        "numsubpods": 1,
+        "primary": true,
+        "subpods": [
+          {
+            "title": "",
+            "microsources": [
+              "CountryData"
+            ],
+            "datasources": [
+              "UNData"
+            ],
+            "plaintext": "145 million people (2023 projection) (world rank: 9th) (2024 estimate)"
+          }
+        ],
+        "expressiontypes": {
+          "name": "Default"
+        }
+      },
+      {
+        "title": "Recent population history",
+        "scanner": "Data",
+        "id": "RecentHistory:Population:CountryData",
+        "position": 200,
+        "error": false,
+        "numsubpods": 1,
+        "subpods": [
+          {
+            "title": "",
+            "microsources": [
+              "CountryData"
+            ],
+            "datasources": [
+              "UNData"
+            ],
+            "plaintext": ""
+          }
+        ],
+        "expressiontypes": {
+          "name": "Default"
+        },
+        "states": [
+          {
+            "name": "Hide projections",
+            "input": "RecentHistory:Population:CountryData__Hide projections"
+          },
+          {
+            "name": "Log scale",
+            "input": "RecentHistory:Population:CountryData__Log scale"
+          }
+        ]
+      },
+      {
+        "title": "Long-term population history",
+        "scanner": "Data",
+        "id": "LongTermHistory:Population:CountryData",
+        "position": 201,
+        "error": false,
+        "numsubpods": 1,
+        "subpods": [
+          {
+            "title": "",
+            "microsources": [
+              "CountryData"
+            ],
+            "datasources": [
+              "UNData"
+            ],
+            "plaintext": ""
+          }
+        ],
+        "expressiontypes": {
+          "name": "Default"
+        },
+        "states": [
+          {
+            "name": "Hide projections",
+            "input": "LongTermHistory:Population:CountryData__Hide projections"
+          },
+          {
+            "name": "Log scale",
+            "input": "LongTermHistory:Population:CountryData__Log scale"
+          }
+        ]
+      },
+      {
+        "title": "Demographics",
+        "scanner": "Data",
+        "id": "DemographicProperties:CountryData",
+        "position": 900,
+        "error": false,
+        "numsubpods": 1,
+        "subpods": [
+          {
+            "title": "",
+            "microsources": [
+              "CountryData"
+            ],
+            "datasources": [
+              "UNData",
+              "CIAFactbook"
+            ],
+            "plaintext": "population | 145 million people (2023 projection) (world rank: 9th) (2024 estimate)\npopulation density | 8.84 people/km^2 (people per square kilometer) (world rank: 222nd) (2024 estimate)"
+          }
+        ],
+        "expressiontypes": {
+          "name": "Grid"
+        },
+        "states": [
+          {
+            "name": "Show rates",
+            "input": "DemographicProperties:CountryData__Show rates"
+          },
+          {
+            "name": "Show distribution",
+            "input": "DemographicProperties:CountryData__Show distribution"
+          },
+          {
+            "name": "Show non-metric",
+            "input": "DemographicProperties:CountryData__Show non-metric"
+          }
+        ]
+      },
+      {
+        "title": "Age distribution",
+        "scanner": "Data",
+        "id": "AgeDistributionPyramidGraphic:AgeDistributionData",
+        "position": 901,
+        "error": false,
+        "numsubpods": 1,
+        "subpods": [
+          {
+            "title": "",
+            "plaintext": ""
+          }
+        ],
+        "expressiontypes": {
+          "name": "Default"
+        }
+      },
+      {
+        "title": "Largest cities",
+        "scanner": "Data",
+        "id": "LargestCities:CountryData",
+        "position": 1050,
+        "error": false,
+        "numsubpods": 1,
+        "subpods": [
+          {
+            "title": "",
+            "microsources": [
+              "CityData",
+              "CountryData"
+            ],
+            "plaintext": "city | population\nMoscow, Central | 13.01 million people\nSaint Petersburg, Admiralteysky | 5.602 million people\nNovosibirsk | 1.634 million people\nYekaterinburg | 1.344 million people\nNizhny Novgorod | 1.213 million people\n(2006, 2010, 2015, 2016, 2017, 2018, 2021, 2023, and 2024 estimates)"
+          }
+        ],
+        "expressiontypes": {
+          "name": "Grid"
+        },
+        "states": [
+          {
+            "name": "More",
+            "input": "LargestCities:CountryData__More"
+          }
+        ]
+      },
+      {
+        "title": "Comparisons",
+        "scanner": "Unit",
+        "id": "ComparisonAsPersonCount",
+        "position": 2210.001,
+        "error": false,
+        "numsubpods": 3,
+        "subpods": [
+          {
+            "title": "",
+            "plaintext": " ≈ ( 0.019 ≈ 1/54 ) × world population ( 7.795 billion people )"
+          },
+          {
+            "title": "",
+            "plaintext": " ≈ 0.69 × current population of Brazil ( 209.3 million people )"
+          },
+          {
+            "title": "",
+            "plaintext": " ≈ 1.4 × current population of Philippines ( 104.9 million people )"
+          }
+        ],
+        "expressiontypes": {
+          "name": "Default"
+        }
+      }
+    ],
+    "timing": 2.88,
+    "timedout": "",
+    "timedoutpods": ""
+  }
+}

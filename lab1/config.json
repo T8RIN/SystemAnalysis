@@ -1,0 +1,8 @@
+{
+  "appid": "3XVYH9L93Q",
+  "base_url": "https://api.wolframalpha.com/v2/query",
+  "output_dir": "outputs",
+  "log_file": "logs/app.log",
+  "timeout_seconds": 20,
+  "max_retries": 2
+}

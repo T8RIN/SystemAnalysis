@@ -1,0 +1,509 @@
+{
+  "queryresult": {
+    "success": true,
+    "error": false,
+    "numpods": 13,
+    "datatypes": "AdministrativeDivision,Mountain,Country,Elevation,City",
+    "parsetiming": 0.245,
+    "parsetimedout": false,
+    "id": "buGCVnsXkWk=6:eJyVkU1OwzAQhcOvys+CK7BFbCpuQBvBAkSJOUCGZJxaMnZkjyvl9sykNJSoi7AZjZ8z3/i93H76Qh9lWRZPuTx7W+szOd1xWYCtkgXCFYSI5cI7QkflIJdLIHhPGDp9vCMUyaI650ahxYq26PkU2NC9hdo4sEZGR+ArAfmvFgKQ2eCWfj+J/juleqemWR96tQ/02GnR4ozLKvgWA3Xqhg+vPjkC4wbxgsXc4oax3ulsR3sxkUZsyZR9YVCX3C0xVujYZTP6TFZKqB9di/F6b6WIB5B74T/864fxVW36V59Mtyo845g4stojJL2c738AT+ibAO3aVAU2vKdPN0+C+zv9DbAmsfY=",
+    "kernelId": "27",
+    "processId": 46878,
+    "version": "2.6",
+    "inputstring": "highest mountain in Europe",
+    "sbsallowed": false,
+    "sources": [
+      {
+        "url": "https://www6b3.wolframalpha.com/sources/AdministrativeDivisionDataSourceInformationNotes.html",
+        "text": "Administrative division data"
+      },
+      {
+        "url": "https://www6b3.wolframalpha.com/sources/MountainDataSourceInformationNotes.html",
+        "text": "Mountain data"
+      },
+      {
+        "url": "https://www6b3.wolframalpha.com/sources/CountryDataSourceInformationNotes.html",
+        "text": "Country data"
+      },
+      {
+        "url": "https://www6b3.wolframalpha.com/sources/ElevationDataSourceInformationNotes.html",
+        "text": "Elevation data"
+      },
+      {
+        "url": "https://www6b3.wolframalpha.com/sources/CityDataSourceInformationNotes.html",
+        "text": "City data"
+      }
+    ],
+    "parentId": "71c949a6-fbc3-4a10-a480-4f2686c5fa81",
+    "requestId": "71c949a6-fbc3-4a10-a480-4f2686c5fa81",
+    "pods": [
+      {
+        "title": "Input interpretation",
+        "scanner": "Identity",
+        "id": "Input",
+        "position": 1,
+        "error": false,
+        "numsubpods": 1,
+        "subpods": [
+          {
+            "title": "",
+            "plaintext": " mountain | with | highest elevation | \nwith | continent | Europe"
+          }
+        ],
+        "expressiontypes": {
+          "name": "Grid"
+        }
+      },
+      {
+        "title": "Result",
+        "scanner": "Ordinal",
+        "id": "Result",
+        "position": 2,
+        "error": false,
+        "numsubpods": 1,
+        "primary": true,
+        "subpods": [
+          {
+            "title": "",
+            "primary": true,
+            "plaintext": "Mount Elbrus\n(5642 meters)"
+          }
+        ],
+        "expressiontypes": {
+          "name": "Grid"
+        }
+      },
+      {
+        "title": "Properties",
+        "scanner": "Data",
+        "id": "Properties:MountainData",
+        "position": 200,
+        "error": false,
+        "numsubpods": 1,
+        "subpods": [
+          {
+            "title": "",
+            "microsources": [
+              "AdministrativeDivisionData",
+              "MountainData"
+            ],
+            "datasources": [
+              "PeakwareWorldMountainEncyclopedia",
+              "TheWikimediaFoundationIncWikipedia"
+            ],
+            "plaintext": "elevation | 5642 m\nlocation | Zolsky, Kabardino-Balkaria, Russia\nparent peak | Mount Elbrus\nmountain range | Central Caucasus Mountains | Caucasus Mountains\nsummit reached | 1874 (152 years ago)\nclimbing difficulty | basic snow/ice climb",
+            "infos": {
+              "units": {
+                "short": "m",
+                "long": "meters"
+              }
+            }
+          }
+        ],
+        "expressiontypes": {
+          "name": "Grid"
+        },
+        "states": [
+          {
+            "name": "Show non-metric",
+            "input": "Properties:MountainData__Show non-metric"
+          }
+        ]
+      },
+      {
+        "title": "Mountain characteristics",
+        "scanner": "Data",
+        "id": "MProperties:MountainData",
+        "position": 210,
+        "error": false,
+        "numsubpods": 1,
+        "subpods": [
+          {
+            "title": "",
+            "microsources": [
+              "MountainData"
+            ],
+            "datasources": [
+              "PeakwareWorldMountainEncyclopedia",
+              "TheWikimediaFoundationIncWikipedia"
+            ],
+            "plaintext": "isolation | 2473 km (kilometers)\nprominence | 4741 meters",
+            "definitions": [
+              {
+                "word": "isolation",
+                "desc": "The topographic isolation of a summit is the minimum great-circle distance to a point of equal elevation, representing a radius of dominance in which the peak is the highest point."
+              },
+              {
+                "word": "prominence",
+                "desc": "Prominence characterizes the height of a mountain or hill's summit by the vertical distance between it and the lowest contour line encircling it but containing no higher summit within it."
+              }
+            ]
+          }
+        ],
+        "expressiontypes": {
+          "name": "Grid"
+        },
+        "states": [
+          {
+            "name": "Show non-metric",
+            "input": "MProperties:MountainData__Show non-metric"
+          }
+        ]
+      },
+      {
+        "title": "Image",
+        "scanner": "Data",
+        "id": "Image:MountainData",
+        "position": 250,
+        "error": false,
+        "numsubpods": 1,
+        "subpods": [
+          {
+            "title": "",
+            "imagesource": "http://commons.wikimedia.org/wiki/File:Elbrus_North_195.jpg",
+            "microsources": [
+              "MountainData"
+            ],
+            "plaintext": ""
+          }
+        ],
+        "expressiontypes": {
+          "name": "Default"
+        }
+      },
+      {
+        "title": "Location",
+        "scanner": "Data",
+        "id": "Location:MountainData",
+        "position": 300,
+        "error": false,
+        "numsubpods": 1,
+        "subpods": [
+          {
+            "title": "",
+            "microsources": [
+              "MountainData",
+              "CountryData"
+            ],
+            "datasources": [
+              "PeakwareWorldMountainEncyclopedia",
+              "TheWikimediaFoundationIncWikipedia",
+              "CIAFactbook"
+            ],
+            "plaintext": "",
+            "infos": {
+              "links": {
+                "url": "http://maps.google.com?ie=UTF8&z=12&t=k&ll=43.355%2C42.4392&q=43.355%20N%2C%2042.4392%20E",
+                "text": "Satellite image"
+              }
+            }
+          }
+        ],
+        "expressiontypes": {
+          "name": "Default"
+        },
+        "states": [
+          {
+            "name": "Show coordinates",
+            "input": "Location:MountainData__Show coordinates"
+          }
+        ]
+      },
+      {
+        "title": "Local elevation",
+        "scanner": "Data",
+        "id": "ElevationProfile:MountainData",
+        "position": 355,
+        "error": false,
+        "numsubpods": 4,
+        "subpods": [
+          {
+            "title": "",
+            "microsources": [
+              "ElevationData",
+              "MountainData"
+            ],
+            "datasources": [
+              "PeakwareWorldMountainEncyclopedia",
+              "TheWikimediaFoundationIncWikipedia"
+            ],
+            "plaintext": "5642 meters"
+          },
+          {
+            "title": "Elevation map",
+            "microsources": [
+              "ElevationData",
+              "MountainData"
+            ],
+            "datasources": [
+              "PeakwareWorldMountainEncyclopedia",
+              "TheWikimediaFoundationIncWikipedia"
+            ],
+            "plaintext": "   "
+          },
+          {
+            "title": "East-west profile",
+            "microsources": [
+              "ElevationData",
+              "MountainData"
+            ],
+            "datasources": [
+              "PeakwareWorldMountainEncyclopedia",
+              "TheWikimediaFoundationIncWikipedia"
+            ],
+            "plaintext": ""
+          },
+          {
+            "title": "North-south profile",
+            "microsources": [
+              "ElevationData",
+              "MountainData"
+            ],
+            "datasources": [
+              "PeakwareWorldMountainEncyclopedia",
+              "TheWikimediaFoundationIncWikipedia"
+            ],
+            "plaintext": ""
+          }
+        ],
+        "expressiontypes": [
+          {
+            "name": "Default"
+          },
+          {
+            "name": "Default"
+          },
+          {
+            "name": "Default"
+          },
+          {
+            "name": "Default"
+          }
+        ],
+        "states": [
+          {
+            "name": "Show coordinates",
+            "input": "ElevationProfile:MountainData__Show coordinates"
+          },
+          {
+            "name": "Show non-metric",
+            "input": "ElevationProfile:MountainData__Show non-metric"
+          },
+          {
+            "name": "Hide topography",
+            "input": "ElevationProfile:MountainData__Hide topography"
+          }
+        ]
+      },
+      {
+        "title": "Standard atmosphere at peak elevation",
+        "scanner": "Data",
+        "id": "AltitudeProperties:MountainData",
+        "position": 400,
+        "error": false,
+        "numsubpods": 1,
+        "subpods": [
+          {
+            "title": "",
+            "microsources": [
+              "MountainData"
+            ],
+            "datasources": [
+              "PeakwareWorldMountainEncyclopedia",
+              "TheWikimediaFoundationIncWikipedia"
+            ],
+            "plaintext": "density | 0.6 × standard atmosphere\npressure | 0.5 × standard atmosphere"
+          }
+        ],
+        "expressiontypes": {
+          "name": "Grid"
+        },
+        "states": [
+          {
+            "name": "Show details",
+            "input": "AltitudeProperties:MountainData__Show details"
+          }
+        ]
+      },
+      {
+        "title": "Nearby cities",
+        "scanner": "Data",
+        "id": "CityHierarchyInfo:MountainData",
+        "position": 650,
+        "error": false,
+        "numsubpods": 1,
+        "subpods": [
+          {
+            "title": "",
+            "microsources": [
+              "CityData",
+              "MountainData"
+            ],
+            "datasources": [
+              "PeakwareWorldMountainEncyclopedia",
+              "TheWikimediaFoundationIncWikipedia"
+            ],
+            "plaintext": "Kislovodsk | 66 km (kilometers) north-northeast | 126674 people\nNalchik | 97 km (kilometers) east | 271447 people\nTbilisi | 268 km (kilometers) southeast | 1.259 million people\n(straight-line distances to city centers)"
+          }
+        ],
+        "expressiontypes": {
+          "name": "Grid"
+        },
+        "states": [
+          {
+            "name": "Show non-metric",
+            "input": "CityHierarchyInfo:MountainData__Show non-metric"
+          },
+          {
+            "name": "More",
+            "input": "CityHierarchyInfo:MountainData__More"
+          }
+        ]
+      },
+      {
+        "title": "Nearby mountains",
+        "scanner": "Data",
+        "id": "MountainHierarchyInfo:MountainData",
+        "position": 655,
+        "error": false,
+        "numsubpods": 1,
+        "subpods": [
+          {
+            "title": "",
+            "microsources": [
+              "MountainData"
+            ],
+            "datasources": [
+              "PeakwareWorldMountainEncyclopedia",
+              "TheWikimediaFoundationIncWikipedia"
+            ],
+            "plaintext": "Babis Mta | 19 km (kilometers) south-southeast | 4454 meters\nGumatchi | 27 km (kilometers) south | 3810 meters\nUshba | 31 km (kilometers) southeast | 4710 meters\nVia-Tau | 33 km (kilometers) east-southeast | 3820 meters\nChatini | 35 km (kilometers) east-southeast | 4412 meters"
+          }
+        ],
+        "expressiontypes": {
+          "name": "Grid"
+        },
+        "states": [
+          {
+            "name": "Show non-metric",
+            "input": "MountainHierarchyInfo:MountainData__Show non-metric"
+          },
+          {
+            "name": "More",
+            "input": "MountainHierarchyInfo:MountainData__More"
+          }
+        ]
+      },
+      {
+        "title": "Wikipedia summary",
+        "scanner": "Data",
+        "id": "WikipediaSummary:MountainData",
+        "position": 4900,
+        "error": false,
+        "numsubpods": 1,
+        "subpods": [
+          {
+            "title": "",
+            "plaintext": "Mount Elbrus is the highest mountain in Russia and Europe. It is a dormant stratovolcano rising 5, 642 m (18, 510 ft) above sea level, and is the highest volcano in Eurasia, as well as the tenth-most prominent peak in the world. It is situated in the southern Russian republic of Kabardino-Balkaria in the western extension of Ciscaucasia, and is the highest peak of the Caucasus Mountains.",
+            "infos": {
+              "links": {
+                "url": "https://en.wikipedia.org/wiki?curid=230484",
+                "text": "Full entry"
+              }
+            }
+          }
+        ],
+        "expressiontypes": {
+          "name": "Default"
+        }
+      },
+      {
+        "title": "Wikipedia page hits history",
+        "scanner": "Data",
+        "id": "PopularityPod:WikipediaStatsData",
+        "position": 5000,
+        "error": false,
+        "numsubpods": 1,
+        "subpods": [
+          {
+            "title": "",
+            "plaintext": ""
+          }
+        ],
+        "expressiontypes": {
+          "name": "Default"
+        },
+        "states": [
+          {
+            "name": "Log scale",
+            "input": "PopularityPod:WikipediaStatsData__Log scale"
+          }
+        ]
+      },
+      {
+        "title": "Mountains ranked by elevation",
+        "scanner": "Ordinal",
+        "id": "OrdinalRankings",
+        "position": 9223372036854776000,
+        "error": false,
+        "numsubpods": 1,
+        "subpods": [
+          {
+            "title": "",
+            "microsources": [
+              "MountainData"
+            ],
+            "datasources": [
+              "PeakwareWorldMountainEncyclopedia",
+              "TheWikimediaFoundationIncWikipedia"
+            ],
+            "plaintext": "1 | Mount Elbrus | 5642 m | \n2 | Dykh-Tau | 5205 m | \n3 | Shkhara | 5201 m | \n4 | Koshtan-Tau | 5144 m | \n5 | Janga Mountain | 5051 m | \n⋮",
+            "infos": {
+              "units": {
+                "short": "m",
+                "long": "meters"
+              }
+            }
+          }
+        ],
+        "expressiontypes": {
+          "name": "Grid"
+        },
+        "states": [
+          {
+            "name": "More",
+            "input": "OrdinalRankings__More"
+          }
+        ]
+      }
+    ],
+    "assumptions": [
+      {
+        "type": "SubCategory",
+        "word": "highest",
+        "template": "Assuming \"${word}\" refers to ${desc1}. Use ${desc2} instead",
+        "count": 3,
+        "values": [
+          {
+            "name": "Elevation",
+            "desc": "elevation",
+            "input": "%2ADPClash.MountainP.highest-_%2AElevation-"
+          },
+          {
+            "name": "Prominence",
+            "desc": "prominence",
+            "input": "%2ADPClash.MountainP.highest-_%2AProminence-"
+          },
+          {
+            "name": "PeakDistanceToEarthCenter",
+            "desc": "peak distance to earth center",
+            "input": "%2ADPClash.MountainP.highest-_%2APeakDistanceToEarthCenter-"
+          }
+        ]
+      }
+    ],
+    "timing": 2.401,
+    "timedout": "",
+    "timedoutpods": ""
+  }
+}
