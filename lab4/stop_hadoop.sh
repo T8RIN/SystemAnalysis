@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT="/Users/malikmuhametzanov/PycharmProjects/burn/lab4"
+HADOOP_HOME="$ROOT/tools/hadoop-3.4.2"
+
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home"
+export HADOOP_HOME
+export HADOOP_CONF_DIR="$HADOOP_HOME/etc/hadoop"
+export HADOOP_LOG_DIR="$HADOOP_HOME/logs"
+export HADOOP_PID_DIR="$ROOT/hadoop-pids"
+export HADOOP_NICENESS=0
+export PATH="$HADOOP_HOME/bin:$HADOOP_HOME/sbin:$PATH"
+
+"$HADOOP_HOME/bin/hdfs" --daemon stop datanode || true
+"$HADOOP_HOME/bin/hdfs" --daemon stop namenode || true

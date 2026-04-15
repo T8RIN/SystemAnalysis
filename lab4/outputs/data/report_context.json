@@ -1,0 +1,14 @@
+{
+  "variant": 1,
+  "selected_registries": [
+    "utility_models"
+  ],
+  "records_count": {
+    "utility_models": 9
+  },
+  "combined_json_path": "/Users/malikmuhametzanov/PycharmProjects/burn/lab4/outputs/data/variant_1_patents.json",
+  "report_path": "/Users/malikmuhametzanov/PycharmProjects/burn/lab4/report.md",
+  "hadoop_report_path": "/Users/malikmuhametzanov/PycharmProjects/burn/lab4/hadoop_report.md",
+  "generated_at": "2026-04-14T21:51:56",
+  "note": "Если вариант пользователя отличается от 1, достаточно перезапустить main.py с нужным --variant."
+}
