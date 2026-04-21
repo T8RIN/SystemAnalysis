@@ -351,6 +351,7 @@ def annotate_frame(
             background_color=box_color,
         )
 
+    # рисует person: N
     summary_text = f"{target_class_name}: {len(detections)}"
     draw_text_background(
         cv2,
