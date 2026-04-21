@@ -1,0 +1,6 @@
+.venv/
+.ultralytics/
+__pycache__/
+*.pt
+outputs/*
+!outputs/.gitkeep
