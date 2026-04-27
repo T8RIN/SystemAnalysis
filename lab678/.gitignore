@@ -1,0 +1,6 @@
+.venv/
+__pycache__/
+.env
+.streamlit/
+outputs/*
+!outputs/.gitkeep
